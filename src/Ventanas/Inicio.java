@@ -12,6 +12,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -27,6 +28,8 @@ public class Inicio extends JPanel {
     JButton Credits = new JButton();
     ImageIcon ControlsIMG = new ImageIcon("src\\Imagenes\\Controls.png");
     JButton Controls = new JButton();
+    JButton Start = new JButton("Start!");
+    JLabel Label1,Label2;
 
     
     public Inicio(){
@@ -36,14 +39,26 @@ public class Inicio extends JPanel {
         }else{
             System.out.println("Image file not found!");
         }
+        Label1 = new JLabel("Awesome background");
+        Label1.setBounds(new Rectangle(285,90,400,200));
+        
+        Label2 = new JLabel("Name");
+        Label2.setBounds(new Rectangle(330,0,50,50));
         
         Credits.setIcon(CreditsIMG);
+        Credits.setBounds(475, 360, 226, 139);
         Controls.setIcon(ControlsIMG);
+        Controls.setBounds(0, 360, 226, 139);
+        
+        Start.setBounds(new Rectangle(250, 350,200, 100));
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Credits);
         add(Controls);
+        add(Start);
+        add(Label1);
+        add(Label2);
         validate();
     }
     
