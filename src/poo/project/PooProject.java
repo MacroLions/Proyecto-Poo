@@ -5,6 +5,8 @@
  */
 package poo.project;
 
+import Ventanas.Inicio;
+import javax.swing.JFrame;
 /**
  *
  * @author ricky
@@ -15,7 +17,12 @@ public class PooProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        JFrame ventana = new JFrame("Ventana");
+        ventana.setContentPane(new Inicio());
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setResizable(true);
+        ventana.pack();
+        ventana.setVisible(true);
     }
     
 }
