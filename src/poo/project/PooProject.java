@@ -20,7 +20,7 @@ public class PooProject {
         JFrame ventana = new JFrame("Ventana");
         ventana.setContentPane(new Inicio());
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setResizable(true);
+        ventana.setResizable(false);
         ventana.pack();
         ventana.setVisible(true);
     }
