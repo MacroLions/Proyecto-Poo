@@ -8,10 +8,13 @@ package Ventanas;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -28,7 +31,7 @@ public class Inicio extends JPanel {
     JButton Credits = new JButton();
     ImageIcon ControlsIMG = new ImageIcon("src\\Imagenes\\Controls.png");
     JButton Controls = new JButton();
-    JButton Start = new JButton("Start!");
+    static JButton Start = new JButton("Start!");
     JLabel Label1,Label2;
 
     
@@ -52,6 +55,16 @@ public class Inicio extends JPanel {
         
         Start.setBounds(new Rectangle(250, 350,200, 100));
         
+        //Events//
+        /**
+        Start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+        */
+                
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Credits);
@@ -60,6 +73,14 @@ public class Inicio extends JPanel {
         add(Label1);
         add(Label2);
         validate();
+    }
+
+    public static JButton getStart() {
+        return Start;
+    }
+
+    public static void setStart(JButton Start) {
+        Inicio.Start = Start;
     }
     
 }
