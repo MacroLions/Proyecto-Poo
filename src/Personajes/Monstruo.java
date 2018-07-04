@@ -14,5 +14,5 @@ import javax.swing.JLabel;
  * @author Maishi
  */
 public class Monstruo{
-    JLabel ImagenBase = new JLabel(new ImageIcon("path_to_image.png"));
+    JLabel ImagenBase = new JLabel(new ImageIcon());
 }

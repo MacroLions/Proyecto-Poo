@@ -25,10 +25,10 @@ public class Seleccion extends JPanel{
     ImageIcon PapaIMG = new ImageIcon("src\\Imagenes\\papacreepy.jpg");
     ImageIcon HermanaIMG = new ImageIcon("src\\Imagenes\\hijacreepy.png");
     ImageIcon HermanoIMG = new ImageIcon("src\\Imagenes\\hijocreepy.png");
-    JButton ButtonMama = new JButton();
-    JButton ButtonPapa = new JButton();
-    JButton ButtonHermana = new JButton();
-    JButton ButtonHermano = new JButton();
+    static JButton ButtonMama = new JButton();
+    static JButton ButtonPapa = new JButton();
+    static JButton ButtonHermana = new JButton();
+    static JButton ButtonHermano = new JButton();
     JLabel lblTitulo, lblMama,lblPapa, lblHermano, lblHermana;
 
     public Seleccion(){
@@ -79,6 +79,38 @@ public class Seleccion extends JPanel{
         add(ButtonHermano);
 
         validate();
+    }
+
+    public static JButton getButtonMama() {
+        return ButtonMama;
+    }
+
+    public static void setButtonMama(JButton ButtonMama) {
+        Seleccion.ButtonMama = ButtonMama;
+    }
+
+    public static JButton getButtonPapa() {
+        return ButtonPapa;
+    }
+
+    public static void setButtonPapa(JButton ButtonPapa) {
+        Seleccion.ButtonPapa = ButtonPapa;
+    }
+
+    public static JButton getButtonHermana() {
+        return ButtonHermana;
+    }
+
+    public static void setButtonHermana(JButton ButtonHermana) {
+        Seleccion.ButtonHermana = ButtonHermana;
+    }
+
+    public static JButton getButtonHermano() {
+        return ButtonHermano;
+    }
+
+    public static void setButtonHermano(JButton ButtonHermano) {
+        Seleccion.ButtonHermano = ButtonHermano;
     }
     
 }
