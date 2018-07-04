@@ -6,6 +6,7 @@
 package poo.project;
 
 import Ventanas.Inicio;
+import Ventanas.Seleccion;
 import javax.swing.JFrame;
 /**
  *
