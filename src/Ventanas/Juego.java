@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Personajes;
+package Ventanas;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
+import javax.swing.JPanel;
 
 /**
  *
  * @author Maishi
  */
-public class Monstruo{
+public class Juego extends JPanel{
+    
+    public Juego(){
+        
+    }
+    
 }

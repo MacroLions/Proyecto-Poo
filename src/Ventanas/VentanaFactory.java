@@ -20,7 +20,9 @@ public class VentanaFactory {
                 
             case 2:
                 return new Seleccion();
-
+                
+            case 3:
+                return new Juego();
         }
         return null;
     }

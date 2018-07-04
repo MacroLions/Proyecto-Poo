@@ -26,15 +26,7 @@ public class PooProject {
         JFrame ventana = new JFrame("Ventana");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setContentPane(VentanaFactory.getVentana(1));
-        
-        Inicio.getStart().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ventana.setContentPane(VentanaFactory.getVentana(2));
-                ventana.validate();
-            }
-        });
-        
+        Auxiliar.configBotones(ventana);
         ventana.setResizable(false);
         ventana.pack();
         ventana.setVisible(true);

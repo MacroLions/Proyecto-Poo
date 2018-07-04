@@ -10,16 +10,28 @@ import Ventanas.Seleccion;
 import Ventanas.VentanaFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 
 /**
  *
  * @author UCA
  */
 public class Auxiliar {
-    static void configBotones(){
+    static void configBotones(JFrame VentanaAModificar){
+        
+        Inicio.getStart().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(2));
+                VentanaAModificar.validate();
+            }
+        });
+        
         Seleccion.getButtonPapa().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(3));
+                VentanaAModificar.validate();
                 
             }
         });
