@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author UCA
+ * @author Nuria y Mai >:3c
  */
 public class Auxiliar {
     static void configBotones(JFrame VentanaAModificar){

@@ -23,6 +23,8 @@ public class VentanaFactory {
                 
             case 3:
                 return new Juego();
+            case 4:
+                return new Tienda();
         }
         return null;
     }
