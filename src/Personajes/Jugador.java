@@ -14,6 +14,7 @@ import java.util.ArrayList;
  * @author Mai Perez
  */
 public class Jugador{
+    static int Puntos;
     ArrayList <Consumible> Consumibles;
     Arma ArmaActual;
     int vida= 200;
@@ -27,7 +28,20 @@ public class Jugador{
         vida= vida-damageRecibido;
     }
 
-    
-    
-    
+    public static int getPuntos() {
+        return Puntos;
+    }
+
+    public static void setPuntos(int Puntos) {
+        Jugador.Puntos = Puntos;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+     
 }

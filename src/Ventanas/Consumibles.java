@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Personajes.Jugador;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -33,7 +34,11 @@ public class Consumibles extends JPanel {
     static JButton ButtonSoda = new JButton("40 pts");
     static JButton ButtonLeche = new JButton("40 pts");
     static JButton ButtonChurro = new JButton("10 pts");
-
+    //No es necesario que los objetos en ventan sean estaticos, solamente confirmacion y cancelar para regresara a la pantalla anterior
+    //Los otros no son necesarios porque la lista de consumbiles de ljugador ES LA QUE DEBE SER STATIC para ser modificada.
+    //ALGUNOS BOTONES NO HAN SIDO AGREGADOS, POR FAVOR GUARDE LA PACIENCIA PARA HACER ADD LUEGO NOS VA A PASAR LO MISMO QUE EL MODPACKS();
+    //Fakiu
+    JLabel puntosJugador;
     JLabel lblTitulo, lblGalleta, lblJugo, lblPupusa, lblEmpanada, lblChocolate, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblSoda, lblLeche, lblChurro;
 
@@ -92,6 +97,9 @@ public class Consumibles extends JPanel {
         lblChocolate.setBounds(375, 250, 400, 30);
 
         ButtonChocolate.setBounds(500, 248, 75, 30);
+        
+        puntosJugador = new JLabel("Puntos: "+Jugador.getPuntos());
+        puntosJugador.setBounds(200, 375, 125, 75);
 
         //TERMINAN LOS BOTONES DE CONSUMIBLES
         //BOTONES DE FUNCION
@@ -122,6 +130,7 @@ public class Consumibles extends JPanel {
         add(ButtonSoda);
         add(ButtonLeche);
         add(ButtonChurro);
+        add(puntosJugador);
 
         validate();
     }
