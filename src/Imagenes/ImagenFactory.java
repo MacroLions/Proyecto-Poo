@@ -22,6 +22,8 @@ public class ImagenFactory {
                 return new ImageIcon("src\\Imagenes\\hijacreepy.png");
             case 4:
                 return new ImageIcon("src\\Imagenes\\hijocreepy.png");
+            case 5:
+                return new ImageIcon("src\\Imagenes\\fin.png");
         }
         return null;
     }

@@ -25,6 +25,8 @@ public class VentanaFactory {
                 return new Juego();
             case 4:
                 return new Tienda();
+            case 5:
+                return new Final();
         }
         return null;
     }
