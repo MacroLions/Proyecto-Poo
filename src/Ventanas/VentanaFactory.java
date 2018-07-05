@@ -27,6 +27,12 @@ public class VentanaFactory {
                 return new Tienda();
             case 5:
                 return new Final();
+            case 6:
+                return new GameOver();
+            case 7:
+                return new Consumibles();
+            case 8:
+                return new Armas();
         }
         return null;
     }
