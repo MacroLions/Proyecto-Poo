@@ -174,13 +174,21 @@ public class Consumibles extends JPanel {
         add(lblChurro);
 
         add(text1);
+        text1.setEditable(false);
         add(text2);
+        text2.setEditable(false);
         add(text3);
+        text3.setEditable(false);
         add(text4);
+        text4.setEditable(false);
         add(text5);
+        text5.setEditable(false);
         add(text6);
+        text6.setEditable(false);
         add(text7);
+        text7.setEditable(false);
         add(text8);
+        text8.setEditable(false);
 
         //agregando botones 
         add(ButtonConfirmacion);
