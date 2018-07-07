@@ -23,7 +23,7 @@ public class PooProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JFrame ventana = new JFrame("Ventana");
+        JFrame ventana = new JFrame("CREEPY FAMILY RUMBLE");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setContentPane(VentanaFactory.getVentana(1));
         Auxiliar.configBotones(ventana);

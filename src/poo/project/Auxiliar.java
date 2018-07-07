@@ -6,9 +6,12 @@
 package poo.project;
 
 import Imagenes.ImagenFactory;
+import Ventanas.Consumibles;
+import Ventanas.Final;
 import Ventanas.Inicio;
 import Ventanas.Juego;
 import Ventanas.Seleccion;
+import Ventanas.Tienda;
 import Ventanas.VentanaFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,6 +61,41 @@ public class Auxiliar {
             public void actionPerformed(ActionEvent e) {
                 Juego.setSprite(ImagenFactory.getImagen(4));
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(3));
+                VentanaAModificar.validate();
+            }
+        });
+        Tienda.getButtonArmas().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+            }
+        });
+        Tienda.getButtonConsumibles().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(7));
+                VentanaAModificar.validate();
+            }
+        });
+        Tienda.getButtonSalir().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(3));
+                VentanaAModificar.validate();
+            }
+        });
+        Consumibles.getButtonCancelar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+                VentanaAModificar.validate();
+            }
+        });
+        Final.getButtonMenu().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(1));
                 VentanaAModificar.validate();
             }
         });

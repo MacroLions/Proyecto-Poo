@@ -62,4 +62,21 @@ public class Final extends JPanel{
 
         validate();
     }
+
+    public static JButton getButtonMenu() {
+        return ButtonMenu;
+    }
+
+    public static void setButtonMenu(JButton ButtonMenu) {
+        Final.ButtonMenu = ButtonMenu;
+    }
+
+    public static JButton getButtonSalir() {
+        return ButtonSalir;
+    }
+
+    public static void setButtonSalir(JButton ButtonSalir) {
+        Final.ButtonSalir = ButtonSalir;
+    }
+    
 }

@@ -117,4 +117,13 @@ public class Consumibles extends JPanel {
 
         validate();
     }
+
+    public static JButton getButtonCancelar() {
+        return ButtonCancelar;
+    }
+
+    public static void setButtonCancelar(JButton ButtonCancelar) {
+        Consumibles.ButtonCancelar = ButtonCancelar;
+    }
+    
 }

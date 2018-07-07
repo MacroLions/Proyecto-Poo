@@ -58,4 +58,37 @@ public class Tienda extends JPanel{
 
         validate();
     }
+
+    public static JButton getButtonConsumibles() {
+        return ButtonConsumibles;
+    }
+
+    public static void setButtonConsumibles(JButton ButtonConsumibles) {
+        Tienda.ButtonConsumibles = ButtonConsumibles;
+    }
+
+    public static JButton getButtonArmas() {
+        return ButtonArmas;
+    }
+
+    public static void setButtonArmas(JButton ButtonArmas) {
+        Tienda.ButtonArmas = ButtonArmas;
+    }
+
+    public static JButton getButtonSalir() {
+        return ButtonSalir;
+    }
+
+    public static void setButtonSalir(JButton ButtonSalir) {
+        Tienda.ButtonSalir = ButtonSalir;
+    }
+
+    public static JButton getButtonObjetoFinal() {
+        return ButtonObjetoFinal;
+    }
+
+    public static void setButtonObjetoFinal(JButton ButtonObjetoFinal) {
+        Tienda.ButtonObjetoFinal = ButtonObjetoFinal;
+    }
+    
 }
