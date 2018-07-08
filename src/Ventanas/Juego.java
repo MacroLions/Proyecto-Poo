@@ -27,19 +27,19 @@ import sun.audio.AudioPlayer;
  * @author Maishi
  */
 public class Juego extends JPanel{
-    Jugador jugador = new Jugador();
+    //Jugador jugador = new Jugador();
     Monstruo monstruo = new Monstruo();
     public int WIDTH = 700;
     public int HEIGHT = 500;
     static ImageIcon SpriteJugador;
     ImageIcon SpriteMonstruo = ImagenFactory.getImagen(6);
-    JLabel Jugador = new JLabel(SpriteJugador);
+    JLabel JugadorLabel = new JLabel(SpriteJugador);
     JLabel Monstruo = new JLabel(SpriteMonstruo);
     JButton Atacar = new JButton("Atacar");
     JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
     JLabel Background = new JLabel();
-    JLabel VidaJugador = new JLabel(Integer.toString(jugador.getVida()));
+    JLabel VidaJugador = new JLabel(Integer.toString(Jugador.getVida()));
     JLabel VidaMonstruo = new JLabel(Integer.toString(monstruo.getVida()));
     ActionListener Ganar = new ActionListener(){
         @Override
@@ -76,7 +76,7 @@ public class Juego extends JPanel{
         VidaMonstruo.setForeground(Color.red);
         Background.setIcon(ImagenFactory.getImagen(8));
         Background.setBounds(0,0,700,500);
-        Jugador.setBounds(0,50,300,300);
+        JugadorLabel.setBounds(0,50,300,300);
         Monstruo.setBounds(400,50,300,300);
         Inventario.setBounds(600,400,100,50);
         Atacar.setBounds(500,400,100,50);
@@ -88,11 +88,11 @@ public class Juego extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                boolean TurnoJugador = true;
-               int damagejugador = jugador.Atacar();
+               int damagejugador = Jugador.Atacar();
                int damagemonstruo = monstruo.Atacar();
                monstruo.recibirDamage(damagejugador);
                if(damagejugador>0){
-                   CajaDeTexto.setText(jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
+                   CajaDeTexto.setText(Jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
                }
                else{
                    CajaDeTexto.setText("Hombre lobo ha esquivado el ataque!");
@@ -104,14 +104,14 @@ public class Juego extends JPanel{
                    public void actionPerformed(ActionEvent e) {
                        if(monstruo.getVida()>0){
                            if(damagemonstruo>0){
-                               CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
+                               CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+Jugador.getNombre());
                            }
                            else{
-                               CajaDeTexto.setText(jugador.getNombre()+" ha esquivado el ataque!");
+                               CajaDeTexto.setText(Jugador.getNombre()+" ha esquivado el ataque!");
                            }
-                           jugador.recibirDamage(damagemonstruo);
-                           VidaJugador.setText(Integer.toString(jugador.getVida()));
-                           if(jugador.getVida()>0){
+                           Jugador.recibirDamage(damagemonstruo);
+                           VidaJugador.setText(Integer.toString(Jugador.getVida()));
+                           if(Jugador.getVida()>0){
                                Atacar.setEnabled(true);
                            }
                            else{
@@ -121,7 +121,7 @@ public class Juego extends JPanel{
                                Timer timerGameOver = new Timer(4000,GameOver);
                                timerGameOver.setRepeats(false);
                                timerGameOver.start();
-                               CajaDeTexto.setText(jugador.getNombre()+" ha sido derrotado!");
+                               CajaDeTexto.setText(Jugador.getNombre()+" ha sido derrotado!");
                            }
                        }
                        else{
@@ -131,7 +131,7 @@ public class Juego extends JPanel{
                            Timer timerTienda = new Timer(4000,Tienda);
                            timerTienda.setRepeats(false);
                            timerTienda.start();
-                           CajaDeTexto.setText(jugador.getNombre()+" ha derrotado a Hombre lobo!");
+                           CajaDeTexto.setText(Jugador.getNombre()+" ha derrotado a Hombre lobo!");
                        }
                    }
                });
@@ -143,7 +143,7 @@ public class Juego extends JPanel{
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Background);
-        Background.add(Jugador);
+        Background.add(JugadorLabel);
         Background.add(Monstruo);
         Background.add(Atacar);
         Background.add(Inventario);

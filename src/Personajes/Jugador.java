@@ -15,20 +15,20 @@ import java.util.Random;
  * @author Mai Perez
  */
 public class Jugador{
-    String nombre = "Juanito Scarlet";
+    static String nombre = "Juanito Scarlet";
     static int Puntos;
     static int compra = 0;
     ArrayList <Consumible> Consumibles;
-    Arma ArmaActual = new Arma("Mani",30);
-    int vida= 200;
+    static Arma ArmaActual = new Arma("Mani",30);
+    static int vida= 200;
     
     public Jugador(){}
     
     public Jugador(String nombre){
-        this.nombre = nombre;
+        Jugador.nombre = nombre;
     }
     
-    public int Atacar(){
+    public static int Atacar(){
         
         int DamageReal = new Random().nextInt((ArmaActual.getDamage() 
                 - ArmaActual.getDamageMin()) + 1) + ArmaActual.getDamageMin();
@@ -37,7 +37,7 @@ public class Jugador{
     }
     
     
-    public void recibirDamage(int damageRecibido){
+    public static void recibirDamage(int damageRecibido){
         vida= vida-damageRecibido;
     }
 
@@ -49,20 +49,20 @@ public class Jugador{
         Jugador.Puntos = Puntos;
     }
 
-    public int getVida() {
+    public static int getVida() {
         return vida;
     }
 
-    public void setVida(int vida) {
-        this.vida = vida;
+    public static void setVida(int vida) {
+        Jugador.vida = vida;
     }
 
-    public String getNombre() {
+    public static String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public static void setNombre(String nombre) {
+        Jugador.nombre = nombre;
     }
 
     public static int getCompra() {
