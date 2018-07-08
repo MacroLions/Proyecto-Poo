@@ -24,7 +24,6 @@ public class Final extends JPanel{
     static JButton ButtonMenu = new JButton("MENU");
     static JButton ButtonSalir = new JButton("SALIR");
     JLabel lblTitulo, lblDianita, lblRichard, lblMai, lblNuria, lblFin;
-
     public Final(){
         
         lblTitulo= new JLabel("CREDITOS A: ");
@@ -44,21 +43,22 @@ public class Final extends JPanel{
         lblNuria.setBounds(550,250,200,20);
         
         lblFin = new JLabel(ImagenFactory.getImagen(5));
-        lblFin.setBounds(10,150,400,400);
+        lblFin.setBounds(0,0,700,500);
         
         ButtonMenu.setBounds(550,400,100,40);
         ButtonSalir.setBounds(550,450,100,40);
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        add(lblTitulo);
-        add(lblDianita);
-        add(lblRichard);
-        add(ButtonMenu);
-        add(lblMai);
-        add(ButtonSalir);
-        add(lblNuria);
         add(lblFin);
+        lblFin.add(lblTitulo);
+        lblFin.add(lblDianita);
+        lblFin.add(lblRichard);
+        lblFin.add(ButtonMenu);
+        lblFin.add(lblMai);
+        lblFin.add(ButtonSalir);
+        lblFin.add(lblNuria);
+        
 
         validate();
     }
