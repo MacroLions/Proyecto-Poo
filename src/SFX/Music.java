@@ -23,14 +23,17 @@ public class Music {
     static AudioStream audio;
     public static void MainTheme(){
         InputStream music;
+        
         try{
             music = new FileInputStream(new File("src\\SFX\\Test.wav"));
-            audio = new AudioStream(music);
-            AudioPlayer.player.start(audio);
+            AudioData data = new AudioStream(music).getData();
+            ContinuousAudioDataStream loop = new ContinuousAudioDataStream(data);
+            AudioPlayer.player.start(loop);
             
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"fail");
+            JOptionPane.showMessageDialog(null,"fail biatch!!!");
         }
+                
     }
     
     public static void BattleTheme(){
