@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import SFX.Music;
+import java.awt.Color;
 import javax.swing.Timer;
 import sun.audio.AudioPlayer;
 
@@ -37,9 +38,17 @@ public class Juego extends JPanel{
     JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
     JLabel Background = new JLabel();
+    JLabel VidaJugador = new JLabel(Integer.toString(jugador.getVida()));
+    JLabel VidaMonstruo = new JLabel(Integer.toString(monstruo.getVida()));
     
     
     public Juego(){
+        VidaJugador.setBounds(150, 0, 100, 20);
+        VidaMonstruo.setBounds(500, 0, 100, 20);
+        VidaJugador.setFont(new Font("Berlin Sans FB",Font.PLAIN,20));
+        VidaMonstruo.setFont(new Font("Berlin Sans FB",Font.PLAIN,20));
+        VidaJugador.setForeground(Color.red);
+        VidaMonstruo.setForeground(Color.red);
         Background.setIcon(ImagenFactory.getImagen(8));
         Background.setBounds(0,0,700,500);
         Jugador.setBounds(0,50,300,300);
@@ -59,12 +68,14 @@ public class Juego extends JPanel{
                monstruo.recibirDamage(damagejugador);
                CajaDeTexto.setText(jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
                Atacar.setEnabled(false);
+               VidaMonstruo.setText(Integer.toString(monstruo.getVida()));
                Timer timer = new Timer(1000,new ActionListener(){
                    @Override
                    public void actionPerformed(ActionEvent e) {
                        CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
                        jugador.recibirDamage(damagemonstruo);
                        Atacar.setEnabled(true);
+                       VidaJugador.setText(Integer.toString(jugador.getVida()));
                    }
                });
                timer.setRepeats(false);
@@ -80,6 +91,8 @@ public class Juego extends JPanel{
         Background.add(Atacar);
         Background.add(Inventario);
         Background.add(CajaDeTexto);
+        Background.add(VidaMonstruo);
+        Background.add(VidaJugador);
         validate();
         AudioPlayer.player.stop(Music.getAudio());
         Music.BattleTheme();
