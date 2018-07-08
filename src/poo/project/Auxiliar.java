@@ -104,6 +104,9 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
+        //Juego.getButton
+        
         Tienda.getButtonSalir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,6 +114,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Consumibles.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -118,11 +122,12 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-                
-        Armas.getButtonCancelar().addActionListener(new ActionListener(){
+        
+        Armas.getButtonVolver().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+                VentanaAModificar.validate();
             }
         });
         
