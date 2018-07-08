@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import poo.project.Music;
+import SFX.Music;
 import javax.swing.Timer;
 
 /**

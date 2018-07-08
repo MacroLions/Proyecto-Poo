@@ -5,6 +5,7 @@
  */
 package poo.project;
 
+import SFX.Music;
 import Ventanas.Inicio;
 import Ventanas.Seleccion;
 import Ventanas.VentanaFactory;

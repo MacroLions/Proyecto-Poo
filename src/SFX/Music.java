@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package poo.project;
+package SFX;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,7 +26,7 @@ public class Music {
 
         try
         {
-            BGM = new AudioStream(new FileInputStream("src/SFX/IbMain.m4a"));
+            BGM = new AudioStream(new FileInputStream("src\\SFX\\IbMain.m4a"));
             MD = BGM.getData();
             loop = new ContinuousAudioDataStream(MD);
         }
@@ -47,7 +47,7 @@ public class Music {
 
         try
         {
-            BGM = new AudioStream(new FileInputStream("src/SFX/VarienLilith.m4a"));
+            BGM = new AudioStream(new FileInputStream("src\\SFX\\VarienLilith.m4a"));
             MD = BGM.getData();
             loop = new ContinuousAudioDataStream(MD);
         }
