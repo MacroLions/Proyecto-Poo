@@ -6,6 +6,7 @@
 package poo.project;
 
 import Imagenes.ImagenFactory;
+import Ventanas.Armas;
 import Ventanas.Consumibles;
 import Ventanas.Final;
 import Ventanas.Inicio;
@@ -92,6 +93,14 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+                
+        Armas.getButtonCancelar().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+            }
+        });
+        
         Final.getButtonMenu().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
