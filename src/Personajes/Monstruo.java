@@ -18,7 +18,7 @@ public class Monstruo{
     int Damage= 20;
     int DamageMin= (int) (Damage*.15);
     
-    
+    public Monstruo(){}
     
     public int Atacar(){
         

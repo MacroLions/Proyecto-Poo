@@ -21,6 +21,11 @@ public class Jugador{
     Arma ArmaActual = new Arma("Mani",30);
     int vida= 200;
     
+    public Jugador(){}
+    
+    public Jugador(String nombre){
+        this.nombre = nombre;
+    }
     
     public int Atacar(){
         
