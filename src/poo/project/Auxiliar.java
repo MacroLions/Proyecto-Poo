@@ -7,6 +7,7 @@ package poo.project;
 
 import Imagenes.ImagenFactory;
 import Ventanas.Consumibles;
+import Ventanas.Controles;
 import Ventanas.Final;
 import Ventanas.Inicio;
 import Ventanas.Juego;
@@ -28,6 +29,30 @@ public class Auxiliar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(2));
+                VentanaAModificar.validate();
+            }
+        });
+        
+        Inicio.getCredits().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(5));
+                VentanaAModificar.validate();
+            }
+        });
+        
+        Inicio.getControls().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(9));
+                VentanaAModificar.validate();
+            }
+        });
+        
+        Controles.getButtonRegresar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(1));
                 VentanaAModificar.validate();
             }
         });
@@ -85,7 +110,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        Consumibles.getButtonCancelar().addActionListener(new ActionListener() {
+        Consumibles.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));

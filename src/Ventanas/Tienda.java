@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -31,12 +32,13 @@ public class Tienda extends JPanel{
         
         lblTitulo= new JLabel("¡TIENDA GAMAZON!");
         lblTitulo.setFont(new Font("Arial",Font.BOLD,20));
+        lblTitulo.setForeground(Color.RED);
         lblTitulo.setBounds(275,10,200,20);
         
         lblEslogan= new JLabel("Donde puedes comprar todo lo que necesitas para destruir");
-        lblEslogan.setBounds(200, 25, 390, 20);
+        lblEslogan.setBounds(200, 30, 390, 20);
         
-        lblPrecioObjetoFinal = new JLabel("El precio del objeto es: $1000");
+        lblPrecioObjetoFinal = new JLabel("El precio del objeto es 1000 pts");
         lblPrecioObjetoFinal.setBounds(450,150,200,20);
         
         ButtonObjetoFinal.setIcon(ObjetoFinalIMG);

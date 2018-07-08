@@ -33,6 +33,8 @@ public class VentanaFactory {
                 return new Consumibles();
             case 8:
                 return new Armas();
+            case 9:
+                return new Controles();
         }
         return null;
     }

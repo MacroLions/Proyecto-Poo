@@ -5,7 +5,9 @@
  */
 package Ventanas;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -28,12 +30,12 @@ public class Inicio extends JPanel {
     public int HEIGHT = 500;
     
     ImageIcon CreditsIMG = new ImageIcon("src\\Imagenes\\Credits.png");
-    JButton Credits = new JButton();
+    ImageIcon portada = new ImageIcon("src\\Imagenes\\portada.jpg");
+    static JButton Credits = new JButton();
     ImageIcon ControlsIMG = new ImageIcon("src\\Imagenes\\Controls.png");
-    JButton Controls = new JButton();
+    static JButton Controls = new JButton();
     static JButton Start = new JButton("Start!");
     JLabel Label1,Label2;
-
     
     public Inicio(){
         File imageCheck = new File("src\\Imagenes\\Controls.png");
@@ -42,11 +44,14 @@ public class Inicio extends JPanel {
         }else{
             System.out.println("Image file not found!");
         }
-        Label1 = new JLabel("Awesome background");
-        Label1.setBounds(new Rectangle(285,90,400,200));
+        Label1 = new JLabel();
+        Label1.setIcon(portada);
+        Label1.setBounds(new Rectangle(25,65,650,250));
         
-        Label2 = new JLabel("Name");
-        Label2.setBounds(new Rectangle(330,0,50,50));
+        Label2 = new JLabel("¡CREEPY FAMILY RUMBLE!");
+        Label2.setFont(new Font("Arial",Font.BOLD,30));
+        Label2.setForeground(Color.MAGENTA);
+        Label2.setBounds(150,5,400,30);
         
         Credits.setIcon(CreditsIMG);
         Credits.setBounds(475, 360, 226, 139);
@@ -54,6 +59,7 @@ public class Inicio extends JPanel {
         Controls.setBounds(0, 360, 226, 139);
         
         Start.setBounds(new Rectangle(250, 350,200, 100));
+        Start.setFont(new Font("Arial",Font.BOLD,40));
         
         //Events//
         /**
@@ -81,6 +87,22 @@ public class Inicio extends JPanel {
 
     public static void setStart(JButton Start) {
         Inicio.Start = Start;
+    }
+
+    public static JButton getCredits() {
+        return Credits;
+    }
+
+    public static void setCredits(JButton Credits) {
+        Inicio.Credits = Credits;
+    }
+
+    public static JButton getControls() {
+        return Controls;
+    }
+
+    public static void setControls(JButton Controls) {
+        Inicio.Controls = Controls;
     }
     
 }

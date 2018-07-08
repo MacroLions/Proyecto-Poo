@@ -26,6 +26,8 @@ public class Consumibles extends JPanel {
     ImageIcon ObjetoFinalIMG = new ImageIcon("src\\Imagenes\\objetofinal.jpg");
     static JButton ButtonConfirmacion = new JButton("CONFIRMAR");
     static JButton ButtonCancelar = new JButton("CANCELAR");
+    static JButton ButtonVolver = new JButton("VOLVER");
+    
     JButton Button1 = new JButton("+");
     JButton Button2 = new JButton("+");
     JButton Button3 = new JButton("+");
@@ -135,12 +137,13 @@ public class Consumibles extends JPanel {
 
         puntosJugador = new JLabel("Puntos: " + Jugador.getPuntos());
         puntosJugador.setFont(new Font("Arial", Font.BOLD, 16));
-        puntosJugador.setBounds(100, 375, 125, 75);
+        puntosJugador.setBounds(30, 375, 125, 75);
 
         //TERMINAN LOS BOTONES DE CONSUMIBLES
         //BOTONES DE FUNCION
         ButtonConfirmacion.setBounds(400, 375, 125, 75);
         ButtonCancelar.setBounds(540, 375, 125, 75);
+        ButtonVolver.setBounds(290,375,100,75);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -194,6 +197,7 @@ public class Consumibles extends JPanel {
         add(ButtonConfirmacion);
         add(ButtonCancelar);
         add(puntosJugador);
+        add(ButtonVolver);
 
         validate();
     }
@@ -204,6 +208,14 @@ public class Consumibles extends JPanel {
 
     public static void setButtonCancelar(JButton ButtonCancelar) {
         Consumibles.ButtonCancelar = ButtonCancelar;
+    }
+
+    public static JButton getButtonVolver() {
+        return ButtonVolver;
+    }
+
+    public static void setButtonVolver(JButton ButtonVolver) {
+        Consumibles.ButtonVolver = ButtonVolver;
     }
 
 }

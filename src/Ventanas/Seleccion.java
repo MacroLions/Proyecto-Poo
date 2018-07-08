@@ -5,7 +5,9 @@
  */
 package Ventanas;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Rectangle;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -40,7 +42,9 @@ public class Seleccion extends JPanel{
         }
         
         lblTitulo= new JLabel("SELECCION DE PERSONAJE");
-        lblTitulo.setBounds(285,10,200,10);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
+        lblTitulo.setForeground(Color.ORANGE);
+        lblTitulo.setBounds(195,5,300,20);
         
         lblMama = new JLabel("CREEPY MAMA");
         lblMama.setBounds(100,300,150,10);
