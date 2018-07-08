@@ -48,7 +48,12 @@ public class ImagenFactory {
                 return new ImageIcon("src\\Imagenes\\BatallaBG.png");             
             case 2:
                 return new ImageIcon("src\\Imagenes\\SelBG.jpg");
-            
+            case 3:
+                return new ImageIcon("src\\Imagenes\\TiendaBG.png");
+            case 4:
+                return new ImageIcon("src\\Imagenes\\ArmasBG.png");
+            case 5:
+                return new ImageIcon("src\\Imagenes\\ConsumiblesBG.png");
         }
         return null;
     }

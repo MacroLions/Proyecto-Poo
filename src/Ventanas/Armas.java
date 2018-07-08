@@ -8,6 +8,7 @@ package Ventanas;
 import Imagenes.ImagenFactory;
 import Objetos.Arma;
 import Personajes.Jugador;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Event;
@@ -41,14 +42,18 @@ public class Armas extends JPanel {
     JButton ButtonCartera = new JButton("Cartera 40 pts");
     JButton ButtonBolson = new JButton("Bolson 100 pts");
 
-    JLabel lblTitulo;
+    JLabel lblTitulo, lblBackground;
     JLabel puntosJugador, total;
 
     public Armas() {
+        lblBackground= new JLabel();
+        lblBackground.setIcon(ImagenFactory.getBackground(4));
+        lblBackground.setBounds(0,0,700,500);
 
         lblTitulo = new JLabel("¡ARMAS!");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTitulo.setBounds(275, 10, 200, 20);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 30));
+        lblTitulo.setForeground(Color.BLUE);
+        lblTitulo.setBounds(275, 15, 200, 30);
 
         //EMPIEZAN LOS BOTONES PARA OBTENER ARMAS
         ButtonChancla.setBounds(120, 100, 150, 50);
@@ -63,19 +68,22 @@ public class Armas extends JPanel {
 
         total = new JLabel("Total de compra: " + Jugador.getCompra());
         total.setFont(new Font("Arial", Font.BOLD, 16));
-        total.setBounds(350, 340, 200, 20);
+        total.setForeground(Color.WHITE);
+        total.setBounds(250, 360, 200, 20);
 
         puntosJugador = new JLabel("Puntos: " + Jugador.getPuntos());
         puntosJugador.setFont(new Font("Arial", Font.BOLD, 16));
-        puntosJugador.setBounds(30, 375, 125, 75);
+        puntosJugador.setForeground(Color.WHITE);
+        puntosJugador.setBounds(50, 375, 125, 75);
 
         //BOTONES DE FUNCION 
         ButtonCancelar.setBounds(540, 400, 125, 75);
-        ButtonVolver.setBounds(380, 400, 125, 75);
+        ButtonVolver.setBounds(480, 400, 125, 75);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(lblTitulo);
+        add(lblBackground);
+        lblBackground.add(lblTitulo);
         
         //Funcions de botones....
         ButtonCancelar.addActionListener(new ActionListener(){
@@ -259,17 +267,17 @@ public class Armas extends JPanel {
 
         //agregando botones 
         //add(ButtonCancelar);
-        add(ButtonVolver);
-        add(puntosJugador);
-        add(total);
-        add(ButtonChancla);
-        add(ButtonCincho);
-        add(ButtonChiliyo);
-        add(ButtonZapato);
-        add(ButtonPantunfla);
-        add(ButtonCartera);
-        add(ButtonBolson);
-        add(ButtonAlmohada);
+        lblBackground.add(ButtonVolver);
+        lblBackground.add(puntosJugador);
+        lblBackground.add(total);
+        lblBackground.add(ButtonChancla);
+        lblBackground.add(ButtonCincho);
+        lblBackground.add(ButtonChiliyo);
+        lblBackground.add(ButtonZapato);
+        lblBackground.add(ButtonPantunfla);
+        lblBackground.add(ButtonCartera);
+        lblBackground.add(ButtonBolson);
+        lblBackground.add(ButtonAlmohada);
         
         validate();
     

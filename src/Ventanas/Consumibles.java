@@ -5,7 +5,9 @@
  */
 package Ventanas;
 
+import Imagenes.ImagenFactory;
 import Personajes.Jugador;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -60,19 +62,24 @@ public class Consumibles extends JPanel {
     //Los otros no son necesarios porque la lista de consumbiles de ljugador ES LA QUE DEBE SER STATIC para ser modificada.
     //ALGUNOS BOTONES NO HAN SIDO AGREGADOS, POR FAVOR GUARDE LA PACIENCIA PARA HACER ADD LUEGO NOS VA A PASAR LO MISMO QUE EL MODPACKS();
     //Fakiu
-    JLabel puntosJugador, total;
+    JLabel puntosJugador, total, lblBackground;
     JLabel lblTitulo, lblGalleta, lblJugo, lblPupusa, lblEmpanada, lblChocolate, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblSoda, lblLeche, lblChurro;
 
     public Consumibles() {
+        lblBackground= new JLabel();
+        lblBackground.setIcon(ImagenFactory.getBackground(5));
+        lblBackground.setBounds(0,0,700,500);
 
         lblTitulo = new JLabel("¡CONSUMIBLES!");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTitulo.setBounds(275, 10, 200, 20);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 30));
+        lblTitulo.setForeground(Color.CYAN);
+        lblTitulo.setBounds(250, 15, 300, 30);
 
         //EMPIEZAN LOS BOTONES PARA OBTENER CONSUMIBLES
         lblGalleta = new JLabel("Galleta 10 pts");
         lblGalleta.setFont(new Font("Arial", Font.BOLD, 16));
+        lblGalleta.setForeground(Color.WHITE);
         lblGalleta.setBounds(50, 100, 400, 20);
 
         Button1.setBounds(240, 100, 100, 20);
@@ -95,7 +102,8 @@ public class Consumibles extends JPanel {
 
         lblJugo = new JLabel("Jugo 20 pts");
         lblJugo.setFont(new Font("Arial", Font.BOLD, 16));
-        lblJugo.setBounds(50, 120, 400, 20);
+        lblJugo.setForeground(Color.WHITE);
+        lblJugo.setBounds(50, 130, 400, 20);
 
         Button11.setBounds(440, 100, 100, 20);
         Button22.setBounds(440, 130, 100, 20);
@@ -108,96 +116,105 @@ public class Consumibles extends JPanel {
 
         lblPupusa = new JLabel("Pupusa 30 pts");
         lblPupusa.setFont(new Font("Arial", Font.BOLD, 16));
-        lblPupusa.setBounds(50, 140, 400, 20);
+        lblPupusa.setForeground(Color.WHITE);
+        lblPupusa.setBounds(50, 160, 400, 20);
 
-        lblEmpanada = new JLabel("Empanada 25");
+        lblEmpanada = new JLabel("Empanada 25 pts");
         lblEmpanada.setFont(new Font("Arial", Font.BOLD, 16));
-        lblEmpanada.setBounds(50, 160, 400, 20);
+        lblEmpanada.setForeground(Color.WHITE);
+        lblEmpanada.setBounds(50, 190, 400, 20);
 
         //consumibles ubicados a la derecha
         lblSoda = new JLabel("Soda 40 pts");
         lblSoda.setFont(new Font("Arial", Font.BOLD, 16));
-        lblSoda.setBounds(50, 180, 400, 20);
+        lblSoda.setForeground(Color.WHITE);
+        lblSoda.setBounds(50, 220, 400, 20);
 
         lblLeche = new JLabel("Leche 40 pts");
         lblLeche.setFont(new Font("Arial", Font.BOLD, 16));
-        lblLeche.setBounds(50, 200, 400, 20);
+        lblLeche.setForeground(Color.WHITE);
+        lblLeche.setBounds(50, 250, 400, 20);
 
         lblChurro = new JLabel("Churro 10 pts");
         lblChurro.setFont(new Font("Arial", Font.BOLD, 16));
-        lblChurro.setBounds(50, 220, 400, 20);
+        lblChurro.setForeground(Color.WHITE);
+        lblChurro.setBounds(50, 280, 400, 20);
 
         lblChocolate = new JLabel("Chocolate 15 pts");
         lblChocolate.setFont(new Font("Arial", Font.BOLD, 16));
-        lblChocolate.setBounds(50, 240, 400, 20);
+        lblChocolate.setForeground(Color.WHITE);
+        lblChocolate.setBounds(50, 310, 400, 20);
 
         total = new JLabel("Total de compra ");
         total.setFont(new Font("Arial", Font.BOLD, 16));
+        total.setForeground(Color.WHITE);
         total.setBounds(350, 340, 200, 20);
 
         puntosJugador = new JLabel("Puntos: " + Jugador.getPuntos());
         puntosJugador.setFont(new Font("Arial", Font.BOLD, 16));
-        puntosJugador.setBounds(30, 375, 125, 75);
+        puntosJugador.setForeground(Color.WHITE);
+        puntosJugador.setBounds(50, 375, 125, 75);
 
         //TERMINAN LOS BOTONES DE CONSUMIBLES
         //BOTONES DE FUNCION
-        ButtonConfirmacion.setBounds(400, 375, 125, 75);
-        ButtonCancelar.setBounds(540, 375, 125, 75);
-        ButtonVolver.setBounds(290,375,100,75);
+        ButtonConfirmacion.setBounds(400, 390, 125, 75);
+        ButtonCancelar.setBounds(540, 390, 125, 75);
+        ButtonVolver.setBounds(290,390,100,75);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(lblTitulo);
-        add(lblGalleta);
-        add(Button1);
-        add(Button2);
-        add(Button3);
-        add(Button4);
-        add(Button5);
-        add(Button6);
-        add(Button7);
-        add(Button8);
+        add(lblBackground);
+        lblBackground.add(lblTitulo);
+        lblBackground.add(lblGalleta);
+        lblBackground.add(Button1);
+        lblBackground.add(Button2);
+        lblBackground.add(Button3);
+        lblBackground.add(Button4);
+        lblBackground.add(Button5);
+        lblBackground.add(Button6);
+        lblBackground.add(Button7);
+        lblBackground.add(Button8);
 
-        add(Button11);
-        add(Button22);
-        add(Button33);
-        add(Button44);
-        add(Button55);
-        add(Button66);
-        add(Button77);
-        add(Button88);
+        lblBackground.add(Button11);
+        lblBackground.add(Button22);
+        lblBackground.add(Button33);
+        lblBackground.add(Button44);
+        lblBackground.add(Button55);
+        lblBackground.add(Button66);
+        lblBackground.add(Button77);
+        lblBackground.add(Button88);
 
-        add(lblJugo);
-        add(total);
-        add(lblPupusa);
-        add(lblEmpanada);
-        add(lblChocolate);
-        add(lblSoda);
-        add(lblLeche);
-        add(lblChurro);
+        lblBackground.add(lblJugo);
+        lblBackground.add(total);
+        lblBackground.add(lblPupusa);
+        lblBackground.add(lblEmpanada);
+        lblBackground.add(lblChocolate);
+        lblBackground.add(lblSoda);
+        lblBackground.add(lblLeche);
+        lblBackground.add(lblChurro);
 
-        add(text1);
+        lblBackground.add(text1);
         text1.setEditable(false);
-        add(text2);
+        lblBackground.add(text2);
         text2.setEditable(false);
-        add(text3);
+        lblBackground.add(text3);
         text3.setEditable(false);
-        add(text4);
+        lblBackground.add(text4);
         text4.setEditable(false);
-        add(text5);
+        lblBackground.add(text5);
         text5.setEditable(false);
-        add(text6);
+        lblBackground.add(text6);
         text6.setEditable(false);
-        add(text7);
+        lblBackground.add(text7);
         text7.setEditable(false);
-        add(text8);
+        lblBackground.add(text8);
         text8.setEditable(false);
 
         //agregando botones 
-        add(ButtonConfirmacion);
-        add(ButtonCancelar);
-        add(puntosJugador);
-        add(ButtonVolver);
+        lblBackground.add(ButtonConfirmacion);
+        lblBackground.add(ButtonCancelar);
+        lblBackground.add(puntosJugador);
+        lblBackground.add(ButtonVolver);
 
         validate();
     }
