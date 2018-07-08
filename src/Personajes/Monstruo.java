@@ -30,4 +30,14 @@ public class Monstruo{
     public void recibirDamage(int damageRecibido){
         vida= vida-damageRecibido;
     }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+    
+    
 }
