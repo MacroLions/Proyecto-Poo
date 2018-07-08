@@ -6,6 +6,7 @@
 package poo.project;
 
 import Imagenes.ImagenFactory;
+import Personajes.Jugador;
 import Ventanas.Armas;
 import Ventanas.Consumibles;
 import Ventanas.Controles;
@@ -24,9 +25,10 @@ import javax.swing.JFrame;
  * @author Nuria y Mai >:3c
  */
 public class Auxiliar {
+
     static JFrame VentanaAModificar;
-    
-    static void configBotones(JFrame VentanaAModificar){
+
+    static void configBotones(JFrame VentanaAModificar) {
         Auxiliar.VentanaAModificar = VentanaAModificar;
         Inicio.getStart().addActionListener(new ActionListener() {
             @Override
@@ -35,7 +37,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Inicio.getCredits().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,7 +45,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Inicio.getControls().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +53,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Controles.getButtonRegresar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +61,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Seleccion.getButtonPapa().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,9 +108,8 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         //Juego.getButton
-        
         Tienda.getButtonSalir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,7 +117,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Consumibles.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,7 +125,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Armas.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -132,7 +133,19 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+        Armas.getButtonCancelar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Le devuelve los puntos al jugador
+                Jugador.setPuntos(Jugador.getPuntos() + Jugador.getCompra());
+                //La compra vuelve a ser cero
+                Jugador.setCompra(0);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonChancla().setEnabled(false);
+            }
+        });
+
         Final.getButtonMenu().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -140,17 +153,113 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
-       
+
+        //BOTONES PARA COMPRAR ARMAS
+        Armas.getButtonChancla().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 10);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 10);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonChancla().setEnabled(false);
+            }
+        });
+        Armas.getButtonCincho().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 20);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 20);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonCincho().setEnabled(false);
+            }
+        });
+        Armas.getButtonChiliyo().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 40);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 40);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonChiliyo().setEnabled(false);
+            }
+        });
+        Armas.getButtonZapato().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 50);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 50);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonZapato().setEnabled(false);
+            }
+        });
+        Armas.getButtonAlmohada().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 5);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 5);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonAlmohada().setEnabled(false);
+            }
+        });
+        Armas.getButtonPantunfla().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 15);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 15);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonPantunfla().setEnabled(false);
+            }
+        });
+        Armas.getButtonCartera().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 35);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 35);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonCartera().setEnabled(false);
+            }
+        });
+        Armas.getButtonBolson().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Se cobra al jugador, le restamos puntos
+                Jugador.setPuntos(Jugador.getPuntos() - 35);
+                //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                Jugador.setCompra(Jugador.getCompra() + 35);
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
+                VentanaAModificar.validate();
+                Armas.getButtonBolson().setEnabled(false);
+            }
+        });
     }
-    
-     public static void Tienda(){
-         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
-         Auxiliar.VentanaAModificar.validate();
-     }
-     
-     public static void GameOver(){
-         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(6));
-         Auxiliar.VentanaAModificar.validate();
-     }
+
+    public static void Tienda() {
+        Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+        Auxiliar.VentanaAModificar.validate();
+    }
+
+    public static void GameOver() {
+        Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(6));
+        Auxiliar.VentanaAModificar.validate();
+    }
 }
