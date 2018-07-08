@@ -53,6 +53,18 @@ public class Juego extends JPanel{
             Auxiliar.Tienda();
         }
     };
+    ActionListener Perder = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            CajaDeTexto.setText("Hombre Lobo: Suerte la proxima, Familia Creepy!");
+        }
+    };
+    ActionListener GameOver = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Auxiliar.GameOver();
+        }
+    };
     
     
     public Juego(){
@@ -79,26 +91,47 @@ public class Juego extends JPanel{
                int damagejugador = jugador.Atacar();
                int damagemonstruo = monstruo.Atacar();
                monstruo.recibirDamage(damagejugador);
-               CajaDeTexto.setText(jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
+               if(damagejugador>0){
+                   CajaDeTexto.setText(jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
+               }
+               else{
+                   CajaDeTexto.setText("Hombre lobo ha esquivado el ataque!");
+               }
                Atacar.setEnabled(false);
                VidaMonstruo.setText(Integer.toString(monstruo.getVida()));
                Timer timer = new Timer(1000,new ActionListener(){
                    @Override
                    public void actionPerformed(ActionEvent e) {
                        if(monstruo.getVida()>0){
-                           CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
+                           if(damagemonstruo>0){
+                               CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
+                           }
+                           else{
+                               CajaDeTexto.setText(jugador.getNombre()+" ha esquivado el ataque!");
+                           }
                            jugador.recibirDamage(damagemonstruo);
-                           Atacar.setEnabled(true);
                            VidaJugador.setText(Integer.toString(jugador.getVida()));
+                           if(jugador.getVida()>0){
+                               Atacar.setEnabled(true);
+                           }
+                           else{
+                               Timer timerPerder = new Timer(2000,Perder);
+                               timerPerder.setRepeats(false);
+                               timerPerder.start();
+                               Timer timerGameOver = new Timer(4000,GameOver);
+                               timerGameOver.setRepeats(false);
+                               timerGameOver.start();
+                               CajaDeTexto.setText(jugador.getNombre()+" ha sido derrotado!");
+                           }
                        }
                        else{
                            Timer timerGanar = new Timer(2000,Ganar);
                            timerGanar.setRepeats(false);
                            timerGanar.start();
-                           Timer timerTienda = new Timer(3000,Tienda);
+                           Timer timerTienda = new Timer(4000,Tienda);
                            timerTienda.setRepeats(false);
                            timerTienda.start();
-                           CajaDeTexto.setText(jugador.getNombre()+" Ha derrotado a Hombre lobo!");
+                           CajaDeTexto.setText(jugador.getNombre()+" ha derrotado a Hombre lobo!");
                        }
                    }
                });
