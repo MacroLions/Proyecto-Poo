@@ -10,7 +10,14 @@ package Objetos;
  * @author Mai Perez
  */
 public class Arma {
+    private String nombre;
     private int damage;
+    private int damageMin = (int)((int) damage*.15);
+
+    public Arma(String nombre, int damage) {
+        this.nombre = nombre;
+        this.damage = damage;
+    }
 
     public int getDamage() {
         return damage;
@@ -19,5 +26,15 @@ public class Arma {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    public int getDamageMin() {
+        return damageMin;
+    }
+
+    public void setDamageMin(int damageMin) {
+        this.damageMin = damageMin;
+    }
+    
+    
     
 }

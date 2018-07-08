@@ -8,20 +8,26 @@ package Personajes;
 import Objetos.Arma;
 import Objetos.Consumible;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
  * @author Mai Perez
  */
 public class Jugador{
+    String nombre = "Juanito Scarlet";
     static int Puntos;
     ArrayList <Consumible> Consumibles;
-    Arma ArmaActual;
+    Arma ArmaActual = new Arma("Mani",30);
     int vida= 200;
     
     
     public int Atacar(){
-        return this.ArmaActual.getDamage();
+        
+        int DamageReal = new Random().nextInt((ArmaActual.getDamage() 
+                - ArmaActual.getDamageMin()) + 1) + ArmaActual.getDamageMin();
+        
+        return DamageReal;
     }
     
     public void recibirDamage(int damageRecibido){
@@ -43,5 +49,15 @@ public class Jugador{
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
      
 }

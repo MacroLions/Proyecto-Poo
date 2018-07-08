@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package Personajes;
+import java.util.Random;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 
 
 /**
@@ -14,4 +14,20 @@ import javax.swing.JLabel;
  * @author Maishi
  */
 public class Monstruo{
+    int vida= 200;
+    int Damage= 20;
+    int DamageMin= (int) (Damage*.15);
+    
+    
+    
+    public int Atacar(){
+        
+        int DamageReal = new Random().nextInt((Damage - DamageMin) + 1) + DamageMin;
+
+        return DamageReal;
+    }
+    
+    public void recibirDamage(int damageRecibido){
+        vida= vida-damageRecibido;
+    }
 }
