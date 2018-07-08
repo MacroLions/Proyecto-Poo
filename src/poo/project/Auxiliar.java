@@ -148,4 +148,9 @@ public class Auxiliar {
          Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
          Auxiliar.VentanaAModificar.validate();
      }
+     
+     public static void GameOver(){
+         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(6));
+         Auxiliar.VentanaAModificar.validate();
+     }
 }
