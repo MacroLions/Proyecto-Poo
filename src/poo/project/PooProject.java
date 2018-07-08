@@ -26,7 +26,7 @@ public class PooProject {
     public static void main(String[] args) {
         JFrame ventana = new JFrame("CREEPY FAMILY RUMBLE");
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setContentPane(VentanaFactory.getVentana(1));
+        ventana.setContentPane(VentanaFactory.getVentana(5));
         Auxiliar.configBotones(ventana);
         ventana.setResizable(false);
         ventana.pack();
