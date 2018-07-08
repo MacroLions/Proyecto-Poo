@@ -17,6 +17,7 @@ import java.util.Random;
 public class Jugador{
     String nombre = "Juanito Scarlet";
     static int Puntos;
+    static int compra = 0;
     ArrayList <Consumible> Consumibles;
     Arma ArmaActual = new Arma("Mani",30);
     int vida= 200;
@@ -34,6 +35,7 @@ public class Jugador{
         
         return DamageReal;
     }
+    
     
     public void recibirDamage(int damageRecibido){
         vida= vida-damageRecibido;
@@ -62,7 +64,12 @@ public class Jugador{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
-     
+
+    public static int getCompra() {
+        return compra;
+    }
+
+    public static void setCompra(int compra) {
+        Jugador.compra = compra;
+    }    
 }
