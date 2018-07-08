@@ -10,7 +10,6 @@ import Personajes.Jugador;
 import Personajes.Monstruo;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -18,14 +17,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import poo.project.Music;
+import javax.swing.Timer;
 
 /**
  *
  * @author Maishi
  */
 public class Juego extends JPanel{
-    Jugador jugador;
-    Monstruo monstruo;
+    Jugador jugador = new Jugador();
+    Monstruo monstruo = new Monstruo();
     public int WIDTH = 700;
     public int HEIGHT = 500;
     static ImageIcon SpriteJugador;
@@ -43,15 +43,31 @@ public class Juego extends JPanel{
         Inventario.setBounds(600,400,100,50);
         Atacar.setBounds(500,400,100,50);
         CajaDeTexto.setBounds(0,400,500,100);
-        CajaDeTexto.setFont(new Font("Berlin Sans FB",Font.PLAIN,40));
+        CajaDeTexto.setFont(new Font("Berlin Sans FB",Font.PLAIN,20));
         CajaDeTexto.setHorizontalTextPosition(JLabel.CENTER);
         CajaDeTexto.setIcon(ImagenFactory.getImagen(7));
         Atacar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-               CajaDeTexto.setText(jugador.getNombre()+ " Ha hecho "+jugador.Atacar());
-            }
+               boolean TurnoJugador = true;
+               int damagejugador = jugador.Atacar();
+               int damagemonstruo = monstruo.Atacar();
+               monstruo.recibirDamage(damagejugador);
+               CajaDeTexto.setText(jugador.getNombre()+ " ha hecho "+damagejugador+" de daño");
+               Atacar.setEnabled(false);
+               Timer timer = new Timer(1000,new ActionListener(){
+                   @Override
+                   public void actionPerformed(ActionEvent e) {
+                       CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
+                       jugador.recibirDamage(damagemonstruo);
+                       Atacar.setEnabled(true);
+                   }
+               });
+               timer.setRepeats(false);
+               timer.start();
+               }  
         });
+        
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Jugador);
@@ -70,7 +86,6 @@ public class Juego extends JPanel{
     public static void setSprite(ImageIcon SpriteJugador) {
         Juego.SpriteJugador = SpriteJugador;
     }
-    
     
     
 }
