@@ -142,7 +142,14 @@ public class Auxiliar {
                 Jugador.setCompra(0);
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(8));
                 VentanaAModificar.validate();
-                Armas.getButtonChancla().setEnabled(false);
+                Armas.getButtonChancla().setEnabled(true);
+                Armas.getButtonCincho().setEnabled(true);
+                Armas.getButtonChiliyo().setEnabled(true);
+                Armas.getButtonZapato().setEnabled(true);
+                Armas.getButtonAlmohada().setEnabled(true);
+                Armas.getButtonPantunfla().setEnabled(true);
+                Armas.getButtonCartera().setEnabled(true);
+                Armas.getButtonBolson().setEnabled(true);
             }
         });
 
