@@ -7,6 +7,9 @@ package Ventanas;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Event;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author Diana
  */
-public class Armas extends JPanel {
+public class Armas extends JPanel implements ActionListener{
 
     public int WIDTH = 700;
     public int HEIGHT = 500;
@@ -47,6 +50,7 @@ public class Armas extends JPanel {
         lblChancla = new JLabel("Chancla");
         lblChancla.setFont(new Font("Arial", Font.BOLD, 25));
         lblChancla.setBounds(50, 98, 400, 30);
+        //lblChancla.setEnabled(true);
 
         ButtonChancla.setBounds(180, 100, 75, 30);
 
@@ -122,7 +126,78 @@ public class Armas extends JPanel {
         add(ButtonCartera);
         add(ButtonBolson);
         add(ButtonPantunfla);
-
+        
+        ButtonCincho.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonCincho.setEnabled(false);
+            }
+        });
+        
+        ButtonAlmohada.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonAlmohada.setEnabled(false);
+            }
+        });
+        
+        ButtonZapato.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonZapato.setEnabled(false);
+            }
+        });
+        
+        ButtonChiliyo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonChiliyo.setEnabled(false);
+            }
+        });
+        
+        ButtonConfirmacion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { //se debe agregar aqui que se pague y que se guarden las armas compradas en el inventario, y que cambie de ventana.
+                
+            }
+        });
+        
+        ButtonCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {//Hay que cerrar la ventana y abrir la de la tienda(?)
+                
+            }
+        });
+        
+        ButtonCartera.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonCartera.setEnabled(false);
+            }
+        });
+        
+        ButtonBolson.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonBolson.setEnabled(false);
+            }
+        });
+        
+        ButtonPantunfla.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonPantunfla.setEnabled(false);
+            }
+        });
+  
         validate();
+        
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+        
 }
