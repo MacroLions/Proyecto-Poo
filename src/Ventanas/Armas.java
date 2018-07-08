@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -40,6 +41,34 @@ public class Armas extends JPanel{
     JLabel lblTitulo, lblChancla, lblCincho, lblZapato, lblChiliyo, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblAlmohada, lblPantunfla, lblCartera, lblBolson;
 
+    JButton Button1 = new JButton("+");
+    JButton Button2 = new JButton("+");
+    JButton Button3 = new JButton("+");
+    JButton Button4 = new JButton("+");
+    JButton Button5 = new JButton("+");
+    JButton Button6 = new JButton("+");
+    JButton Button7 = new JButton("+");
+    JButton Button8 = new JButton("+");
+
+    //botones menos
+    JButton Button11 = new JButton("-");
+    JButton Button22 = new JButton("-");
+    JButton Button33 = new JButton("-");
+    JButton Button44 = new JButton("-");
+    JButton Button55 = new JButton("-");
+    JButton Button66 = new JButton("-");
+    JButton Button77 = new JButton("-");
+    JButton Button88 = new JButton("-");
+
+    JTextField text1 = new JTextField();
+    JTextField text2 = new JTextField();
+    JTextField text3 = new JTextField();
+    JTextField text4 = new JTextField();
+    JTextField text5 = new JTextField();
+    JTextField text6 = new JTextField();
+    JTextField text7 = new JTextField();
+    JTextField text8 = new JTextField();
+
     public Armas() {
 
         lblTitulo = new JLabel("¡ARMAS!");
@@ -47,61 +76,71 @@ public class Armas extends JPanel{
         lblTitulo.setBounds(275, 10, 200, 20);
 
         //EMPIEZAN LOS BOTONES PARA OBTENER CONSUMIBLES
-        lblChancla = new JLabel("Chancla");
-        lblChancla.setFont(new Font("Arial", Font.BOLD, 25));
-        lblChancla.setBounds(50, 98, 400, 30);
-        //lblChancla.setEnabled(true);
+        lblChancla = new JLabel("Chancla 10 pts");
+        lblChancla.setFont(new Font("Arial", Font.BOLD, 15));
+        lblChancla.setBounds(50, 90, 400, 30);
 
-        ButtonChancla.setBounds(180, 100, 75, 30);
+        lblCincho = new JLabel("Cincho 20 pts");
+        lblCincho.setFont(new Font("Arial", Font.BOLD, 15));
+        lblCincho.setBounds(50, 120, 400, 30);
 
-        lblCincho = new JLabel("Cincho");
-        lblCincho.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCincho.setBounds(50, 150, 400, 30);
+        lblChiliyo = new JLabel("Chiliyo 40 pts");
+        lblChiliyo.setFont(new Font("Arial", Font.BOLD, 15));
+        lblChiliyo.setBounds(50, 155, 400, 30);
 
-        ButtonCincho.setBounds(180, 148, 75, 30);
-
-        lblChiliyo = new JLabel("Chiliyo");
-        lblChiliyo.setFont(new Font("Arial", Font.BOLD, 25));
-        lblChiliyo.setBounds(50, 200, 400, 30);
-
-        ButtonChiliyo.setBounds(180, 198, 75, 30);
-
-        lblZapato = new JLabel("Zapato");
-        lblZapato.setFont(new Font("Arial", Font.BOLD, 25));
-        lblZapato.setBounds(50, 250, 400, 30);
-
-        ButtonZapato.setBounds(180, 248, 75, 30);
+        lblZapato = new JLabel("Zapato 50 pts");
+        lblZapato.setFont(new Font("Arial", Font.BOLD, 15));
+        lblZapato.setBounds(50, 185, 400, 30);
 
         //consumibles ubicados a la derecha
-        lblAlmohada = new JLabel("Almohada");
-        lblAlmohada.setFont(new Font("Arial", Font.BOLD, 25));
-        lblAlmohada.setBounds(375, 98, 400, 30);
+        lblAlmohada = new JLabel("Almohada 5 pts");
+        lblAlmohada.setFont(new Font("Arial", Font.BOLD, 15));
+        lblAlmohada.setBounds(50, 215, 400, 30);
 
-        ButtonAlmohada.setBounds(500, 100, 75, 30);
+        lblPantunfla = new JLabel("Pantunfla 15 pts");
+        lblPantunfla.setFont(new Font("Arial", Font.BOLD, 15));
+        lblPantunfla.setBounds(50, 245, 400, 30);
 
-        lblPantunfla = new JLabel("Pantunfla");
-        lblPantunfla.setFont(new Font("Arial", Font.BOLD, 25));
-        lblPantunfla.setBounds(375, 150, 400, 30);
+        lblCartera = new JLabel("Cartera 35 pts");
+        lblCartera.setFont(new Font("Arial", Font.BOLD, 15));
+        lblCartera.setBounds(50, 275, 400, 30);
 
-        ButtonPantunfla.setBounds(500, 148, 75, 30);
+        lblBolson = new JLabel("Bolson 35 pts");
+        lblBolson.setFont(new Font("Arial", Font.BOLD, 15));
+        lblBolson.setBounds(50, 306, 400, 30);
+        
+                Button1.setBounds(240, 100, 100, 20);
+        Button2.setBounds(240, 130, 100, 20);
+        Button3.setBounds(240, 160, 100, 20);
+        Button4.setBounds(240, 190, 100, 20);
+        Button5.setBounds(240, 220, 100, 20);
+        Button6.setBounds(240, 250, 100, 20);
+        Button7.setBounds(240, 280, 100, 20);
+        Button8.setBounds(240, 310, 100, 20);
 
-        lblCartera = new JLabel("Cartera");
-        lblCartera.setFont(new Font("Arial", Font.BOLD, 25));
-        lblCartera.setBounds(375, 200, 400, 30);
+        text1.setBounds(362, 100, 60, 20);
+        text2.setBounds(362, 130, 60, 20);
+        text3.setBounds(362, 160, 60, 20);
+        text4.setBounds(362, 190, 60, 20);
+        text5.setBounds(362, 220, 60, 20);
+        text6.setBounds(362, 250, 60, 20);
+        text7.setBounds(362, 280, 60, 20);
+        text8.setBounds(362, 310, 60, 20);
 
-        ButtonCartera.setBounds(500, 198, 75, 30);
+        Button11.setBounds(440, 100, 100, 20);
+        Button22.setBounds(440, 130, 100, 20);
+        Button33.setBounds(440, 160, 100, 20);
+        Button44.setBounds(440, 190, 100, 20);
+        Button55.setBounds(440, 220, 100, 20);
+        Button66.setBounds(440, 250, 100, 20);
+        Button77.setBounds(440, 280, 100, 20);
+        Button88.setBounds(440, 310, 100, 20);
 
-        lblBolson = new JLabel("Bolson");
-        lblBolson.setFont(new Font("Arial", Font.BOLD, 25));
-        lblBolson.setBounds(375, 250, 400, 30);
-
-        ButtonBolson.setBounds(500, 248, 75, 30);
-
-        //TERMINAN LOS BOTONES DE CONSUMIBLES
-        //BOTONES DE FUNCION
+        //TERMINAN LOS BOTONES DE ARMAS
+        //BOTONES DE FUNCION 
         ButtonConfirmacion.setBounds(400, 375, 125, 75);
         ButtonCancelar.setBounds(540, 375, 125, 75);
-        ButtonVolver.setBounds(290,375,100,75);
+        ButtonVolver.setBounds(150, 250, 100, 70);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -116,17 +155,42 @@ public class Armas extends JPanel{
         add(lblBolson);
 
         //agregando botones 
-        add(ButtonCincho);
-        add(ButtonAlmohada);
-        add(ButtonChancla);
-        add(ButtonZapato);
-        add(ButtonChiliyo);
         add(ButtonConfirmacion);
         add(ButtonCancelar);
-        add(ButtonVolver);
-        add(ButtonCartera);
-        add(ButtonBolson);
-        add(ButtonPantunfla);
+        add(Button1);
+        add(Button2);
+        add(Button3);
+        add(Button4);
+        add(Button5);
+        add(Button6);
+        add(Button7);
+        add(Button8);
+
+        add(Button11);
+        add(Button22);
+        add(Button33);
+        add(Button44);
+        add(Button55);
+        add(Button66);
+        add(Button77);
+        add(Button88);
+
+        add(text1);
+        text1.setEditable(false);
+        add(text2);
+        text2.setEditable(false);
+        add(text3);
+        text3.setEditable(false);
+        add(text4);
+        text4.setEditable(false);
+        add(text5);
+        text5.setEditable(false);
+        add(text6);
+        text6.setEditable(false);
+        add(text7);
+        text7.setEditable(false);
+        add(text8);
+        text8.setEditable(false);
         
         ButtonCincho.addActionListener(new ActionListener(){
             @Override
