@@ -26,6 +26,8 @@ public class ImagenFactory {
                 return new ImageIcon("src\\Imagenes\\fin.png");
             case 6:
                 return new ImageIcon("src\\Imagenes\\Lobo.jpg");
+            case 7:
+                return new ImageIcon("src\\Imagenes\\TextBox.png");
         }
         return null;
     }
