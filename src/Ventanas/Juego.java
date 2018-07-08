@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import SFX.Music;
 import javax.swing.Timer;
+import sun.audio.AudioPlayer;
 
 /**
  *
@@ -35,9 +36,12 @@ public class Juego extends JPanel{
     JButton Atacar = new JButton("Atacar");
     JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
+    JLabel Background = new JLabel();
     
     
     public Juego(){
+        Background.setIcon(ImagenFactory.getImagen(8));
+        Background.setBounds(0,0,700,500);
         Jugador.setBounds(0,50,300,300);
         Monstruo.setBounds(400,50,300,300);
         Inventario.setBounds(600,400,100,50);
@@ -70,12 +74,14 @@ public class Juego extends JPanel{
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        add(Jugador);
-        add(Monstruo);
-        add(Atacar);
-        add(Inventario);
-        add(CajaDeTexto);
+        add(Background);
+        Background.add(Jugador);
+        Background.add(Monstruo);
+        Background.add(Atacar);
+        Background.add(Inventario);
+        Background.add(CajaDeTexto);
         validate();
+        AudioPlayer.player.stop(Music.getAudio());
         Music.BattleTheme();
     }
 

@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import Imagenes.ImagenFactory;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -23,40 +24,41 @@ public class Seleccion extends JPanel{
     public int WIDTH = 700;
     public int HEIGHT = 500;
     
-    ImageIcon MamaIMG = new ImageIcon("src\\Imagenes\\mamacreepy.jpg");
-    ImageIcon PapaIMG = new ImageIcon("src\\Imagenes\\papacreepy.jpg");
-    ImageIcon HermanaIMG = new ImageIcon("src\\Imagenes\\hijacreepy.png");
-    ImageIcon HermanoIMG = new ImageIcon("src\\Imagenes\\hijocreepy.png");
+    ImageIcon MamaIMG = new ImageIcon("src\\Imagenes\\SelMama.png");
+    ImageIcon PapaIMG = new ImageIcon("src\\Imagenes\\SelPapa.png");
+    ImageIcon HermanaIMG = new ImageIcon("src\\Imagenes\\SelHija.png");
+    ImageIcon HermanoIMG = new ImageIcon("src\\Imagenes\\SelHijo.png");
     static JButton ButtonMama = new JButton();
     static JButton ButtonPapa = new JButton();
     static JButton ButtonHermana = new JButton();
     static JButton ButtonHermano = new JButton();
     JLabel lblTitulo, lblMama,lblPapa, lblHermano, lblHermana;
+    JLabel Background;
 
     public Seleccion(){
-        File imageCheck = new File("src\\Imagenes\\mamacreepy.jpg");
-        if(imageCheck.exists()){
-            System.out.println("Image file found!");
-        }else{
-            System.out.println("Image file not found!");
-        }
-        
+        Background = new JLabel();
+        Background.setIcon(ImagenFactory.getBackground(2));
+        Background.setBounds(0, 0, 800, 500);
         lblTitulo= new JLabel("SELECCION DE PERSONAJE");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitulo.setForeground(Color.ORANGE);
-        lblTitulo.setBounds(195,5,300,20);
+        lblTitulo.setBounds(220,5,300,20);
         
         lblMama = new JLabel("CREEPY MAMA");
-        lblMama.setBounds(100,300,150,10);
+        lblMama.setForeground(Color.yellow);
+        lblMama.setBounds(120,300,150,10);
         
         lblPapa = new JLabel("CREEPY DADDY");
-        lblPapa.setBounds(100,50,150,10);
+        lblPapa.setForeground(Color.red);
+        lblPapa.setBounds(120,50,150,10);
         
         lblHermana = new JLabel("CREEPY SIS");
-        lblHermana.setBounds(430,50,150,10);
+        lblHermana.setForeground(Color.pink);
+        lblHermana.setBounds(490,50,150,10);
         
         lblHermano = new JLabel("CREEPY BRO");
-        lblHermano.setBounds(430,300,150,10);
+        lblHermano.setForeground(Color.blue);
+        lblHermano.setBounds(490,300,150,10);
         
         ButtonMama.setIcon(MamaIMG);
         ButtonMama.setBounds(50, 320, 226, 139);
@@ -65,22 +67,23 @@ public class Seleccion extends JPanel{
         ButtonPapa.setBounds(50, 70, 226, 139);
         
         ButtonHermana.setIcon(HermanaIMG);
-        ButtonHermana.setBounds(375, 70, 226, 139);
+        ButtonHermana.setBounds(420, 70, 226, 139);
         
         ButtonHermano.setIcon(HermanoIMG);
-        ButtonHermano.setBounds(375, 320, 226, 139);
+        ButtonHermano.setBounds(420, 320, 226, 139);
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        add(lblTitulo);
-        add(ButtonMama);
-        add(ButtonPapa);
-        add(lblPapa);
-        add(lblMama);
-        add(lblHermana);
-        add(lblHermano);
-        add(ButtonHermana);
-        add(ButtonHermano);
+        add(Background);
+        Background.add(lblTitulo);
+        Background.add(ButtonMama);
+        Background.add(ButtonPapa);
+        Background.add(lblPapa);
+        Background.add(lblMama);
+        Background.add(lblHermana);
+        Background.add(lblHermano);
+        Background.add(ButtonHermana);
+        Background.add(ButtonHermano);
 
         validate();
     }
