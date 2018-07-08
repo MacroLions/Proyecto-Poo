@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import poo.project.Music;
 
 /**
  *
@@ -59,6 +60,7 @@ public class Juego extends JPanel{
         add(Inventario);
         add(CajaDeTexto);
         validate();
+        Music.BattleTheme();
     }
 
     public static ImageIcon SpriteJugador() {
