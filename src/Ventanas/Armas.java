@@ -34,8 +34,8 @@ public class Armas extends JPanel{
     static JButton ButtonChiliyo = new JButton("10 pts");
     static JButton ButtonAlmohada = new JButton("3 pts");
     static JButton ButtonPantunfla = new JButton("8 pts");
-    static JButton ButtonCartera = new JButton("20 pts");
     static JButton ButtonBolson = new JButton("13 pts");
+    static JButton ButtonCartera = new JButton("20 pts");
 
     JLabel lblTitulo, lblChancla, lblCincho, lblZapato, lblChiliyo, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblAlmohada, lblPantunfla, lblCartera, lblBolson;
@@ -101,7 +101,7 @@ public class Armas extends JPanel{
         //BOTONES DE FUNCION
         ButtonConfirmacion.setBounds(400, 375, 125, 75);
         ButtonCancelar.setBounds(540, 375, 125, 75);
-        ButtonVolver.setBounds(150, 250, 100, 70);
+        ButtonVolver.setBounds(290,375,100,75);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -123,6 +123,7 @@ public class Armas extends JPanel{
         add(ButtonChiliyo);
         add(ButtonConfirmacion);
         add(ButtonCancelar);
+        add(ButtonVolver);
         add(ButtonCartera);
         add(ButtonBolson);
         add(ButtonPantunfla);
@@ -138,6 +139,13 @@ public class Armas extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 ButtonAlmohada.setEnabled(false);
+            }
+        });
+        
+        ButtonChancla.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ButtonChancla.setEnabled(false);
             }
         });
         
@@ -157,8 +165,25 @@ public class Armas extends JPanel{
         
         ButtonConfirmacion.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { //se debe agregar aqui que se pague y que se guarden las armas compradas en el inventario, y que cambie de ventana.
+            public void actionPerformed(ActionEvent e) { //se debe agregar aqui que se pague y que se guarden las armas compradas en el inventario.
                 
+            }
+        });
+        
+        ButtonCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Total = 0
+                
+                ButtonCincho.setEnabled(true);
+                ButtonAlmohada.setEnabled(true);
+                ButtonChancla.setEnabled(true);
+                ButtonZapato.setEnabled(true);
+                ButtonChiliyo.setEnabled(true);
+                ButtonVolver.setEnabled(true);
+                ButtonCartera.setEnabled(true);
+                ButtonBolson.setEnabled(true);
+                ButtonPantunfla.setEnabled(true);                                
             }
         });
  
@@ -187,12 +212,12 @@ public class Armas extends JPanel{
         
     }
 
-    public static JButton getButtonCancelar() {
-        return ButtonCancelar;
+    public static JButton getButtonVolver() {
+        return ButtonVolver;
     }
 
-    public static void setButtonCancelar(JButton ButtonCancelar) {
-        Consumibles.ButtonCancelar = ButtonCancelar;
+    public static void setButtonVolver(JButton ButtonVolver) {
+        Consumibles.ButtonVolver = ButtonVolver;
     }
         
 }
