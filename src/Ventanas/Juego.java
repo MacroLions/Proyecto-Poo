@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import SFX.Music;
 import java.awt.Color;
 import javax.swing.Timer;
+import poo.project.Auxiliar;
 import sun.audio.AudioPlayer;
 
 /**
@@ -40,6 +41,18 @@ public class Juego extends JPanel{
     JLabel Background = new JLabel();
     JLabel VidaJugador = new JLabel(Integer.toString(jugador.getVida()));
     JLabel VidaMonstruo = new JLabel(Integer.toString(monstruo.getVida()));
+    ActionListener Ganar = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            CajaDeTexto.setText("Hombre Lobo: Volveré y no podrás vencerme la proxima!");
+        }
+    };
+    ActionListener Tienda = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Auxiliar.Tienda();
+        }
+    };
     
     
     public Juego(){
@@ -72,10 +85,21 @@ public class Juego extends JPanel{
                Timer timer = new Timer(1000,new ActionListener(){
                    @Override
                    public void actionPerformed(ActionEvent e) {
-                       CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
-                       jugador.recibirDamage(damagemonstruo);
-                       Atacar.setEnabled(true);
-                       VidaJugador.setText(Integer.toString(jugador.getVida()));
+                       if(monstruo.getVida()>0){
+                           CajaDeTexto.setText("Hombre lobo ha hecho "+damagemonstruo+" de daño a "+jugador.getNombre());
+                           jugador.recibirDamage(damagemonstruo);
+                           Atacar.setEnabled(true);
+                           VidaJugador.setText(Integer.toString(jugador.getVida()));
+                       }
+                       else{
+                           Timer timerGanar = new Timer(2000,Ganar);
+                           timerGanar.setRepeats(false);
+                           timerGanar.start();
+                           Timer timerTienda = new Timer(3000,Tienda);
+                           timerTienda.setRepeats(false);
+                           timerTienda.start();
+                           CajaDeTexto.setText(jugador.getNombre()+" Ha derrotado a Hombre lobo!");
+                       }
                    }
                });
                timer.setRepeats(false);
