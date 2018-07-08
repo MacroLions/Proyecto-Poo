@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author Diana
  */
-public class Armas extends JPanel implements ActionListener{
+public class Armas extends JPanel{
 
     public int WIDTH = 700;
     public int HEIGHT = 500;
@@ -161,14 +161,7 @@ public class Armas extends JPanel implements ActionListener{
                 
             }
         });
-        
-        ButtonCancelar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {//Hay que cerrar la ventana y abrir la de la tienda(?)
-                
-            }
-        });
-        
+ 
         ButtonCartera.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -194,10 +187,12 @@ public class Armas extends JPanel implements ActionListener{
         
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static JButton getButtonCancelar() {
+        return ButtonCancelar;
     }
-    
+
+    public static void setButtonCancelar(JButton ButtonCancelar) {
+        Consumibles.ButtonCancelar = ButtonCancelar;
+    }
         
 }
