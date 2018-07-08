@@ -24,8 +24,10 @@ import javax.swing.JFrame;
  * @author Nuria y Mai >:3c
  */
 public class Auxiliar {
+    static JFrame VentanaAModificar;
+    
     static void configBotones(JFrame VentanaAModificar){
-        
+        Auxiliar.VentanaAModificar = VentanaAModificar;
         Inicio.getStart().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,5 +140,12 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
+       
     }
+    
+     public static void Tienda(){
+         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+         Auxiliar.VentanaAModificar.validate();
+     }
 }

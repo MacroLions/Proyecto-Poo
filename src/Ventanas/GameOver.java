@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import SFX.Music;
 import java.awt.Dimension;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import sun.audio.AudioPlayer;
 
 
 /**
@@ -35,7 +37,7 @@ public class GameOver extends JPanel{
         }
         
         GO.setIcon(GOIMG);
-        GO.setBounds(50,10,590,400);
+        GO.setBounds(0,0,700,500);
         
         GOButton.setText("Reintentar");
         GOButton.setBounds(300, 420, 100, 50);
@@ -48,6 +50,8 @@ public class GameOver extends JPanel{
 
 
         validate();
+        AudioPlayer.player.stop(Music.getAudio());
+        Music.GameOverTheme();
     }
     
 }

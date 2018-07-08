@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import SFX.Music;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import sun.audio.AudioPlayer;
 
 /**
  *
@@ -59,6 +61,9 @@ public class Tienda extends JPanel{
         add(ButtonObjetoFinal);
 
         validate();
+        
+        AudioPlayer.player.stop(Music.getAudio());
+        Music.ShopTheme();
     }
 
     public static JButton getButtonConsumibles() {
