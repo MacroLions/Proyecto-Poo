@@ -25,8 +25,8 @@ import javax.swing.JFrame;
  */
 public class Auxiliar {
     static JFrame VentanaAModificar;
-
-    static void configBotones(JFrame VentanaAModificar) {
+    
+    static void configBotones(JFrame VentanaAModificar){
         Auxiliar.VentanaAModificar = VentanaAModificar;
         Inicio.getStart().addActionListener(new ActionListener() {
             @Override
@@ -35,7 +35,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Inicio.getCredits().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,7 +43,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Inicio.getControls().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +51,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Controles.getButtonRegresar().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +59,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Seleccion.getButtonPapa().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -106,7 +106,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         //Juego.getButton
         
         Tienda.getButtonSalir().addActionListener(new ActionListener() {
@@ -116,7 +116,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Consumibles.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,7 +124,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Armas.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -132,7 +132,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
         Final.getButtonMenu().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -143,9 +143,9 @@ public class Auxiliar {
         
        
     }
-
+    
      public static void Tienda(){
-        Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
-        Auxiliar.VentanaAModificar.validate();
-    }
+         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
+         Auxiliar.VentanaAModificar.validate();
+     }
 }
