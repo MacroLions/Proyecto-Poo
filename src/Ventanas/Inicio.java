@@ -5,6 +5,7 @@
  */
 package Ventanas;
 
+import SFX.Music;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import sun.audio.AudioPlayer;
 
 /**
  *
@@ -79,6 +81,8 @@ public class Inicio extends JPanel {
         add(Label1);
         add(Label2);
         validate();
+        AudioPlayer.player.stop(Music.getAudio());
+        Music.MainTheme();
     }
 
     public static JButton getStart() {

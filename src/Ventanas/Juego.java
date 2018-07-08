@@ -43,10 +43,10 @@ public class Juego extends JPanel{
     
     
     public Juego(){
-        VidaJugador.setBounds(150, 0, 100, 20);
-        VidaMonstruo.setBounds(500, 0, 100, 20);
-        VidaJugador.setFont(new Font("Berlin Sans FB",Font.PLAIN,20));
-        VidaMonstruo.setFont(new Font("Berlin Sans FB",Font.PLAIN,20));
+        VidaJugador.setBounds(100, 10, 100, 20);
+        VidaMonstruo.setBounds(500, 10, 100, 20);
+        VidaJugador.setFont(new Font("Berlin Sans FB",Font.PLAIN,30));
+        VidaMonstruo.setFont(new Font("Berlin Sans FB",Font.PLAIN,30));
         VidaJugador.setForeground(Color.red);
         VidaMonstruo.setForeground(Color.red);
         Background.setIcon(ImagenFactory.getImagen(8));
