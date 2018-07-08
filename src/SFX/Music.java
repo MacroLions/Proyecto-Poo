@@ -45,6 +45,30 @@ public class Music {
             JOptionPane.showMessageDialog(null,"fail");
         }    
     }
+    
+    public static void ShopTheme(){
+        InputStream music;
+        try{
+            music = new FileInputStream(new File("src\\SFX\\shop.wav"));
+            audio = new AudioStream(music);
+            AudioPlayer.player.start(audio);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"fail");
+        }
+    }
+    
+    public static void GameOverTheme(){
+        InputStream music;
+        try{
+            music = new FileInputStream(new File("src\\SFX\\GameOver.wav"));
+            audio = new AudioStream(music);
+            AudioPlayer.player.start(audio);
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"fail");
+        }
+    }
 
     public static AudioStream getAudio() {
         return audio;
