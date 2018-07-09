@@ -138,9 +138,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 150);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Cincho",300));
-                    ButtonChancla.setEnabled(false);
+                    ButtonCincho.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonCincho.setEnabled(true);
                 }
             }
         });
@@ -158,9 +158,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 90);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Chiliyo",50));
-                    ButtonChancla.setEnabled(false);
+                    ButtonChiliyo.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonChiliyo.setEnabled(true);
                 }
             }
         });
@@ -178,9 +178,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 50);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Zapato",30));
-                    ButtonChancla.setEnabled(false);
+                    ButtonZapato.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonZapato.setEnabled(true);
                 }
             }
         });
@@ -198,9 +198,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 5);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Almohada",10));
-                    ButtonChancla.setEnabled(false);
+                    ButtonAlmohada.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonAlmohada.setEnabled(true);
                 }
             }
         });
@@ -218,9 +218,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 10);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Pantunfla",20));
-                    ButtonChancla.setEnabled(false);
+                    ButtonPantunfla.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonPantunfla.setEnabled(true);
                 }
             }
         });
@@ -238,9 +238,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 40);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Cartera",100));
-                    ButtonChancla.setEnabled(false);
+                    ButtonCartera.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonCartera.setEnabled(true);
                 }
             }
         });
@@ -258,9 +258,9 @@ public class Armas extends JPanel {
                     Jugador.setCompra(Jugador.getCompra() + 100);
                     puntosJugador.setText("Puntos: " + Jugador.getPuntos());
                     Jugador.setArmaActual(new Arma("Bolson",200));
-                    ButtonChancla.setEnabled(false);
+                    ButtonBolson.setEnabled(false);
                 } else {
-                    ButtonChancla.setEnabled(true);
+                    ButtonBolson.setEnabled(true);
                 }
             }
         });

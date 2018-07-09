@@ -48,7 +48,7 @@ public class GameOver extends JPanel{
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(GO);
-        add(GOButton);
+        GO.add(GOButton);
   
 
         validate();
