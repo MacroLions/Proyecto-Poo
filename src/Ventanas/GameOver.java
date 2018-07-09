@@ -7,6 +7,8 @@ package Ventanas;
 
 import SFX.Music;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,7 +27,7 @@ public class GameOver extends JPanel{
     public int HEIGHT = 500;
     
     ImageIcon GOIMG = new ImageIcon("src\\Imagenes\\GameOver.png");
-    JButton GOButton = new JButton();
+    static JButton GOButton = new JButton();
     JLabel GO = new JLabel();
 
     public GameOver(){
@@ -47,11 +49,19 @@ public class GameOver extends JPanel{
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(GO);
         add(GOButton);
-
+  
 
         validate();
         AudioPlayer.player.stop(Music.getAudio());
         Music.GameOverTheme();
+    }
+    
+    public static JButton getGOButton() {
+        return GOButton;
+    }
+
+    public static void setGOButton(JButton GOButton) {
+        GameOver.GOButton = GOButton;
     }
     
 }
