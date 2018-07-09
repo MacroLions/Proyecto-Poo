@@ -17,7 +17,7 @@ import java.util.Random;
 public class Jugador {
 
     static String nombre = "Juanito Scarlet";
-    static int Puntos=0;
+    static int Puntos;
     static int compra;
     ArrayList<Consumible> Consumibles;
     static Arma ArmaActual = new Arma("Mani", 30);
@@ -74,13 +74,17 @@ public class Jugador {
         Jugador.compra = compra;
     }
 
-    public static boolean ValidarComprar() {
+    public boolean ValidarCompra() {
         boolean compraRealizada;
-        if (Jugador.getCompra() > Jugador.getPuntos()) {
+        if (Jugador.getPuntos() == 0) {
             compraRealizada = false;
-        } else if (Jugador.getCompra() == 0) {
+            System.out.println("no deberia funcionar");
+        } else if(Jugador.getCompra() > Jugador.getPuntos() && Jugador.getPuntos() > 0){
+            System.out.println("no debe");
             compraRealizada = false;
-        } else {
+        }
+        else {
+            System.out.println("DEBE FUNCIONAR");
             compraRealizada = true;
         }
         return compraRealizada;
