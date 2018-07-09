@@ -7,13 +7,10 @@ package SFX;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import javax.swing.JOptionPane;
-import sun.audio.AudioData;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
 
 /**
  *
@@ -23,17 +20,15 @@ public class Music {
     static AudioStream audio;
     public static void MainTheme(){
         InputStream music;
-        
+        AudioPlayer.player.stop();
         try{
             music = new FileInputStream(new File("src\\SFX\\Test.wav"));
-            AudioData data = new AudioStream(music).getData();
-            ContinuousAudioDataStream loop = new ContinuousAudioDataStream(data);
-            AudioPlayer.player.start(loop);
+            audio = new AudioStream(music);
+            AudioPlayer.player.start(audio);
             
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null,"fail biatch!!!");
-        }
-                
+            JOptionPane.showMessageDialog(null,"fail");
+        }          
     }
     
     public static void BattleTheme(){
