@@ -6,8 +6,11 @@
 package Ventanas;
 
 import Imagenes.ImagenFactory;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -28,18 +31,23 @@ public class Final extends JPanel{
         
         lblTitulo= new JLabel("CREDITOS A: ");
         lblTitulo.setFont(new Font("Arial",Font.BOLD,20));
+        lblTitulo.setForeground(Color.white);
         lblTitulo.setBounds(550,50,200,20);
         
         lblDianita= new JLabel("DIANA ALFARO");
+        lblDianita.setForeground(Color.white);
         lblDianita.setBounds(550, 100, 390, 20);
         
         lblRichard = new JLabel("RICARDO PEREZ");
+        lblRichard.setForeground(Color.white);
         lblRichard.setBounds(550,150,200,20);
         
         lblMai = new JLabel("MAITREYI PEREZ");
+        lblMai.setForeground(Color.white);
         lblMai.setBounds(550,200,200,20);
         
         lblNuria = new JLabel("NURIA RIVAS");
+        lblNuria.setForeground(Color.white);
         lblNuria.setBounds(550,250,200,20);
         
         lblFin = new JLabel(ImagenFactory.getImagen(5));
@@ -48,6 +56,12 @@ public class Final extends JPanel{
         ButtonMenu.setBounds(550,400,100,40);
         ButtonSalir.setBounds(550,450,100,40);
         
+        ButtonSalir.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }            
+        });
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(lblFin);
