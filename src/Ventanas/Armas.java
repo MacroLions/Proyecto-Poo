@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Imagenes.ImagenFactory;
+import Objetos.Arma;
 import Personajes.Jugador;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -29,16 +30,16 @@ public class Armas extends JPanel {
     public int HEIGHT = 500;
 
     ImageIcon ObjetoFinalIMG = new ImageIcon("src\\Imagenes\\objetofinal.jpg");
-    static JButton ButtonCancelar = new JButton("CANCELAR");
+    JButton ButtonCancelar = new JButton("CANCELAR");
     static JButton ButtonVolver = new JButton("VOLVER");
-    static JButton ButtonChancla = new JButton("Chancla 10 pts");
-    static JButton ButtonCincho = new JButton("Cincho 20 pts");
-    static JButton ButtonChiliyo = new JButton("Chiliyo 40 pts");
-    static JButton ButtonZapato = new JButton("Zapato 50 pts");
-    static JButton ButtonAlmohada = new JButton("Almohada 5 pts");
-    static JButton ButtonPantunfla = new JButton("Pantunfla 15 pts");
-    static JButton ButtonCartera = new JButton("Cartera 35 pts");
-    static JButton ButtonBolson = new JButton("Bolson 35 pts");
+    JButton ButtonChancla = new JButton("Chancla 100 pts");
+    JButton ButtonCincho = new JButton("Cincho 150 pts");
+    JButton ButtonChiliyo = new JButton("Chiliyo 90 pts");
+    JButton ButtonZapato = new JButton("Zapato 50 pts");
+    JButton ButtonAlmohada = new JButton("Almohada 5 pts");
+    JButton ButtonPantunfla = new JButton("Pantunfla 10 pts");
+    JButton ButtonCartera = new JButton("Cartera 40 pts");
+    JButton ButtonBolson = new JButton("Bolson 100 pts");
 
     JLabel lblTitulo;
     JLabel puntosJugador, total;
@@ -75,6 +76,186 @@ public class Armas extends JPanel {
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         add(lblTitulo);
+        
+        //Funcions de botones....
+        ButtonCancelar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Le devuelve los puntos al jugador
+                Jugador.setPuntos(Jugador.getPuntos() + Jugador.getCompra());
+                //La compra vuelve a ser cero
+                Jugador.setCompra(0);
+                validate();
+                ButtonChancla.setEnabled(true);
+                ButtonCincho.setEnabled(true);
+                ButtonChiliyo.setEnabled(true);
+                ButtonZapato.setEnabled(true);
+                ButtonAlmohada.setEnabled(true);
+                ButtonPantunfla.setEnabled(true);
+                ButtonCartera.setEnabled(true);
+                ButtonBolson.setEnabled(true);
+            }
+        });
+        //Chancla
+        ButtonChancla.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+100);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 100);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 100);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Chancla",200));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Cincho
+        ButtonCincho.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+100);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 150);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 150);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Cincho",300));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Chiliyo
+        ButtonChiliyo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+90);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 90);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 90);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Chiliyo",50));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Zapato
+        ButtonZapato.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+50);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 50);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 50);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Zapato",30));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Almohada
+        ButtonAlmohada.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+5);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 5);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 5);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Almohada",10));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Pantufla
+        ButtonPantunfla.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+10);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 10);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 10);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Pantunfla",20));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Cartera
+        ButtonCartera.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+40);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 40);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 40);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Cartera",100));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
+        //Bolson
+        ButtonBolson.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(Jugador.getCompra()+100);
+                total.setText("Total de compra: " + Jugador.getCompra());
+                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
+                if (Jugador.ValidarComprar()) {
+                    //Se cobra al jugador, le restamos puntos
+                    Jugador.setPuntos(Jugador.getPuntos() - 100);
+                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
+                    Jugador.setCompra(Jugador.getCompra() + 100);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Jugador.setArmaActual(new Arma("Bolson",200));
+                    ButtonChancla.setEnabled(false);
+                } else {
+                    ButtonChancla.setEnabled(true);
+                }
+            }
+        });
 
         //agregando botones 
         add(ButtonCancelar);
@@ -91,88 +272,19 @@ public class Armas extends JPanel {
         add(ButtonAlmohada);
         
         validate();
-
+    
     }
 
-    public static JButton getButtonChancla() {
-        return ButtonChancla;
-    }
-
-    public static void setButtonChancla(JButton ButtonChancla) {
-        Armas.ButtonChancla = ButtonChancla;
-    }
-
-    public static JButton getButtonCancelar() {
-        return ButtonCancelar;
-    }
-
-    public static void setButtonCancelar(JButton ButtonCancelar) {
-        Armas.ButtonCancelar = ButtonCancelar;
-    }
     public static JButton getButtonVolver() {
         return ButtonVolver;
     }
 
     public static void setButtonVolver(JButton ButtonVolver) {
-        Consumibles.ButtonVolver = ButtonVolver;
+        Armas.ButtonVolver = ButtonVolver;
     }
 
-    public static JButton getButtonCincho() {
-        return ButtonCincho;
-    }
-
-    public static void setButtonCincho(JButton ButtonCincho) {
-        Armas.ButtonCincho = ButtonCincho;
-    }
-
-    public static JButton getButtonChiliyo() {
-        return ButtonChiliyo;
-    }
-
-    public static void setButtonChiliyo(JButton ButtonChiliyo) {
-        Armas.ButtonChiliyo = ButtonChiliyo;
-    }
-
-    public static JButton getButtonZapato() {
-        return ButtonZapato;
-    }
-
-    public static void setButtonZapato(JButton ButtonZapato) {
-        Armas.ButtonZapato = ButtonZapato;
-    }
-
-    public static JButton getButtonAlmohada() {
-        return ButtonAlmohada;
-    }
-
-    public static void setButtonAlmohada(JButton ButtonAlmohada) {
-        Armas.ButtonAlmohada = ButtonAlmohada;
-    }
-
-    public static JButton getButtonPantunfla() {
-        return ButtonPantunfla;
-    }
-
-    public static void setButtonPantunfla(JButton ButtonPantunfla) {
-        Armas.ButtonPantunfla = ButtonPantunfla;
-    }
-
-    public static JButton getButtonCartera() {
-        return ButtonCartera;
-    }
-
-    public static void setButtonCartera(JButton ButtonCartera) {
-        Armas.ButtonCartera = ButtonCartera;
-    }
-
-    public static JButton getButtonBolson() {
-        return ButtonBolson;
-    }
-
-    public static void setButtonBolson(JButton ButtonBolson) {
-        Armas.ButtonBolson = ButtonBolson;
-    }
+  
     
-    
-
 }
+
+   
