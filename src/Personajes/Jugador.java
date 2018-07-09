@@ -17,7 +17,7 @@ import java.util.Random;
 public class Jugador {
 
     static String nombre = "Juanito Scarlet";
-    static int Puntos;
+    static int Puntos=0;
     static int compra;
     ArrayList<Consumible> Consumibles;
     static Arma ArmaActual = new Arma("Mani", 30);
@@ -74,7 +74,7 @@ public class Jugador {
         Jugador.compra = compra;
     }
 
-    public boolean ValidarComprar() {
+    public static boolean ValidarComprar() {
         boolean compraRealizada;
         if (Jugador.getCompra() > Jugador.getPuntos()) {
             compraRealizada = false;
@@ -85,5 +85,14 @@ public class Jugador {
         }
         return compraRealizada;
     }
+
+    public static Arma getArmaActual() {
+        return ArmaActual;
+    }
+
+    public static void setArmaActual(Arma ArmaActual) {
+        Jugador.ArmaActual = ArmaActual;
+    }
+    
 
 }
