@@ -10,6 +10,8 @@ import Personajes.Jugador;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -29,7 +31,7 @@ public class Consumibles extends JPanel {
     static JButton ButtonConfirmacion = new JButton("CONFIRMAR");
     static JButton ButtonCancelar = new JButton("CANCELAR");
     static JButton ButtonVolver = new JButton("VOLVER");
-    
+
     JButton Button1 = new JButton("+");
     JButton Button2 = new JButton("+");
     JButton Button3 = new JButton("+");
@@ -65,11 +67,13 @@ public class Consumibles extends JPanel {
     JLabel puntosJugador, total, lblBackground;
     JLabel lblTitulo, lblGalleta, lblJugo, lblPupusa, lblEmpanada, lblChocolate, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblSoda, lblLeche, lblChurro;
+    int b1, b2, b3, b4, b5, b6, b7, b8;
+    JLabel lbl1, lbl2, lbl3, lbl4, lbl5, lbl6, lbl7, lbl8;
 
     public Consumibles() {
-        lblBackground= new JLabel();
+        lblBackground = new JLabel();
         lblBackground.setIcon(ImagenFactory.getBackground(5));
-        lblBackground.setBounds(0,0,700,500);
+        lblBackground.setBounds(0, 0, 700, 500);
 
         lblTitulo = new JLabel("¡CONSUMIBLES!");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 30));
@@ -145,6 +149,46 @@ public class Consumibles extends JPanel {
         lblChocolate.setForeground(Color.WHITE);
         lblChocolate.setBounds(50, 310, 400, 20);
 
+        lbl1 = new JLabel("" + this.getB1());
+        lbl1.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl1.setForeground(Color.WHITE);
+        lbl1.setBounds(385, 98, 30, 30);
+
+        lbl2 = new JLabel("" + this.getB2());
+        lbl2.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl2.setForeground(Color.WHITE);
+        lbl2.setBounds(385, 130, 30, 30);
+
+        lbl3 = new JLabel("" + this.getB3());
+        lbl3.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl3.setForeground(Color.WHITE);
+        lbl3.setBounds(385, 160, 30, 30);
+
+        lbl4 = new JLabel("" + this.getB4());
+        lbl4.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl4.setForeground(Color.WHITE);
+        lbl4.setBounds(385, 190, 30, 30);
+
+        lbl5 = new JLabel("" + this.getB5());
+        lbl5.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl5.setForeground(Color.WHITE);
+        lbl5.setBounds(385, 220, 30, 30);
+
+        lbl6 = new JLabel("" + this.getB6());
+        lbl6.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl6.setForeground(Color.WHITE);
+        lbl6.setBounds(385, 248, 30, 30);
+
+        lbl7 = new JLabel("" + this.getB7());
+        lbl7.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl7.setForeground(Color.WHITE);
+        lbl7.setBounds(385, 277, 30, 30);
+
+        lbl8 = new JLabel("" + this.getB8());
+        lbl8.setFont(new Font("Arial", Font.BOLD, 16));
+        lbl8.setForeground(Color.WHITE);
+        lbl8.setBounds(385, 306, 30, 30);
+
         total = new JLabel("Total de compra ");
         total.setFont(new Font("Arial", Font.BOLD, 16));
         total.setForeground(Color.WHITE);
@@ -159,7 +203,7 @@ public class Consumibles extends JPanel {
         //BOTONES DE FUNCION
         ButtonConfirmacion.setBounds(400, 390, 125, 75);
         ButtonCancelar.setBounds(540, 390, 125, 75);
-        ButtonVolver.setBounds(290,390,100,75);
+        ButtonVolver.setBounds(290, 390, 100, 75);
 
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -193,22 +237,14 @@ public class Consumibles extends JPanel {
         lblBackground.add(lblLeche);
         lblBackground.add(lblChurro);
 
-        lblBackground.add(text1);
-        text1.setEditable(false);
-        lblBackground.add(text2);
-        text2.setEditable(false);
-        lblBackground.add(text3);
-        text3.setEditable(false);
-        lblBackground.add(text4);
-        text4.setEditable(false);
-        lblBackground.add(text5);
-        text5.setEditable(false);
-        lblBackground.add(text6);
-        text6.setEditable(false);
-        lblBackground.add(text7);
-        text7.setEditable(false);
-        lblBackground.add(text8);
-        text8.setEditable(false);
+        lblBackground.add(lbl1);
+        lblBackground.add(lbl2);
+        lblBackground.add(lbl3);
+        lblBackground.add(lbl4);
+        lblBackground.add(lbl5);
+        lblBackground.add(lbl6);
+        lblBackground.add(lbl7);
+        lblBackground.add(lbl8);
 
         //agregando botones 
         lblBackground.add(ButtonConfirmacion);
@@ -216,6 +252,165 @@ public class Consumibles extends JPanel {
         lblBackground.add(puntosJugador);
         lblBackground.add(ButtonVolver);
 
+        ButtonCancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB1(0);
+                c.setB2(0);
+                c.setB3(0);
+                c.setB4(0);
+                c.setB5(0);
+                c.setB6(0);
+                c.setB7(0);
+                c.setB8(0);
+            }
+        });
+
+        Button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB1(c.getB1() + 1);
+                lbl1.setText("" + c.getB1());
+                VentanaFactory.getVentana(7);
+            }
+        });
+
+        Button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB2(c.getB2() + 1);
+                lbl2.setText("" + c.getB2());
+            }
+        });
+
+        Button3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB3(c.getB3() + 1);
+                lbl3.setText("" + c.getB3());
+            }
+        });
+
+        Button4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB4(c.getB4() + 1);
+                lbl4.setText("" + c.getB4());
+            }
+        });
+
+        Button5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB5(c.getB5() + 1);
+                lbl5.setText("" + c.getB5());
+            }
+        });
+
+        Button6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB6(c.getB6() + 1);
+                lbl6.setText("" + c.getB6());
+            }
+        });
+
+        Button7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB7(getB7() + 1);
+                lbl7.setText("" + c.getB7());
+            }
+        });
+
+        Button8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB8(c.getB8() + 1);
+                lbl8.setText("" + c.getB8());
+            }
+        });
+
+        Button11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB1(c.getB8() - 1);
+                lbl1.setText("" + c.getB1());
+            }
+        });
+
+        Button22.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB2(c.getB2() - 1);
+                lbl2.setText("" + c.getB2());
+            }
+        });
+
+        Button33.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB3(c.getB3() - 1);
+                lbl3.setText("" + c.getB3());
+            }
+        });
+
+        Button44.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB4(c.getB4() - 1);
+                lbl4.setText("" + c.getB4());
+            }
+        });
+
+        Button55.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB5(c.getB5() - 1);
+                lbl5.setText("" + c.getB5());
+            }
+        });
+
+        Button66.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB6(c.getB6() - 1);
+                lbl6.setText("" + c.getB6());
+            }
+        });
+
+        Button77.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB7(c.getB7() - 1);
+                lbl7.setText("" + c.getB7());
+            }
+        });
+
+        Button88.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Consumibles c = new Consumibles();
+                c.setB8(c.getB8() - 1);
+                lbl8.setText("" + c.getB8());
+            }
+        });
         validate();
     }
 
@@ -233,6 +428,262 @@ public class Consumibles extends JPanel {
 
     public static void setButtonVolver(JButton ButtonVolver) {
         Consumibles.ButtonVolver = ButtonVolver;
+    }
+
+    public JButton getButton1() {
+        return Button1;
+    }
+
+    public void setButton1(JButton Button1) {
+        this.Button1 = Button1;
+    }
+
+    public JButton getButton2() {
+        return Button2;
+    }
+
+    public void setButton2(JButton Button2) {
+        this.Button2 = Button2;
+    }
+
+    public JButton getButton3() {
+        return Button3;
+    }
+
+    public void setButton3(JButton Button3) {
+        this.Button3 = Button3;
+    }
+
+    public JButton getButton4() {
+        return Button4;
+    }
+
+    public void setButton4(JButton Button4) {
+        this.Button4 = Button4;
+    }
+
+    public JButton getButton5() {
+        return Button5;
+    }
+
+    public void setButton5(JButton Button5) {
+        this.Button5 = Button5;
+    }
+
+    public JButton getButton6() {
+        return Button6;
+    }
+
+    public void setButton6(JButton Button6) {
+        this.Button6 = Button6;
+    }
+
+    public JButton getButton7() {
+        return Button7;
+    }
+
+    public void setButton7(JButton Button7) {
+        this.Button7 = Button7;
+    }
+
+    public JButton getButton8() {
+        return Button8;
+    }
+
+    public void setButton8(JButton Button8) {
+        this.Button8 = Button8;
+    }
+
+    public JButton getButton11() {
+        return Button11;
+    }
+
+    public void setButton11(JButton Button11) {
+        this.Button11 = Button11;
+    }
+
+    public JButton getButton22() {
+        return Button22;
+    }
+
+    public void setButton22(JButton Button22) {
+        this.Button22 = Button22;
+    }
+
+    public JButton getButton33() {
+        return Button33;
+    }
+
+    public void setButton33(JButton Button33) {
+        this.Button33 = Button33;
+    }
+
+    public JButton getButton44() {
+        return Button44;
+    }
+
+    public void setButton44(JButton Button44) {
+        this.Button44 = Button44;
+    }
+
+    public JButton getButton55() {
+        return Button55;
+    }
+
+    public void setButton55(JButton Button55) {
+        this.Button55 = Button55;
+    }
+
+    public JButton getButton66() {
+        return Button66;
+    }
+
+    public void setButton66(JButton Button66) {
+        this.Button66 = Button66;
+    }
+
+    public JButton getButton77() {
+        return Button77;
+    }
+
+    public void setButton77(JButton Button77) {
+        this.Button77 = Button77;
+    }
+
+    public JButton getButton88() {
+        return Button88;
+    }
+
+    public void setButton88(JButton Button88) {
+        this.Button88 = Button88;
+    }
+
+    public int getB1() {
+        return b1;
+    }
+
+    public void setB1(int b1) {
+        this.b1 = b1;
+    }
+
+    public int getB2() {
+        return b2;
+    }
+
+    public void setB2(int b2) {
+        this.b2 = b2;
+    }
+
+    public int getB3() {
+        return b3;
+    }
+
+    public void setB3(int b3) {
+        this.b3 = b3;
+    }
+
+    public int getB4() {
+        return b4;
+    }
+
+    public void setB4(int b4) {
+        this.b4 = b4;
+    }
+
+    public int getB5() {
+        return b5;
+    }
+
+    public void setB5(int b5) {
+        this.b5 = b5;
+    }
+
+    public int getB6() {
+        return b6;
+    }
+
+    public void setB6(int b6) {
+        this.b6 = b6;
+    }
+
+    public int getB7() {
+        return b7;
+    }
+
+    public void setB7(int b7) {
+        this.b7 = b7;
+    }
+
+    public int getB8() {
+        return b8;
+    }
+
+    public void setB8(int b8) {
+        this.b8 = b8;
+    }
+
+    public JLabel getLbl1() {
+        return lbl1;
+    }
+
+    public void setLbl1(JLabel lbl1) {
+        this.lbl1 = lbl1;
+    }
+
+    public JLabel getLbl2() {
+        return lbl2;
+    }
+
+    public void setLbl2(JLabel lbl2) {
+        this.lbl2 = lbl2;
+    }
+
+    public JLabel getLbl3() {
+        return lbl3;
+    }
+
+    public void setLbl3(JLabel lbl3) {
+        this.lbl3 = lbl3;
+    }
+
+    public JLabel getLbl4() {
+        return lbl4;
+    }
+
+    public void setLbl4(JLabel lbl4) {
+        this.lbl4 = lbl4;
+    }
+
+    public JLabel getLbl5() {
+        return lbl5;
+    }
+
+    public void setLbl5(JLabel lbl5) {
+        this.lbl5 = lbl5;
+    }
+
+    public JLabel getLbl6() {
+        return lbl6;
+    }
+
+    public void setLbl6(JLabel lbl6) {
+        this.lbl6 = lbl6;
+    }
+
+    public JLabel getLbl7() {
+        return lbl7;
+    }
+
+    public void setLbl7(JLabel lbl7) {
+        this.lbl7 = lbl7;
+    }
+
+    public JLabel getLbl8() {
+        return lbl8;
+    }
+
+    public void setLbl8(JLabel lbl8) {
+        this.lbl8 = lbl8;
     }
 
 }
