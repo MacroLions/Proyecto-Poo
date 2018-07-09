@@ -18,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import SFX.Music;
 import java.awt.Color;
+import static java.lang.Math.random;
+import java.util.Random;
 import javax.swing.Timer;
 import poo.project.Auxiliar;
 import sun.audio.AudioPlayer;
@@ -34,7 +36,7 @@ public class Juego extends JPanel{
     static ImageIcon SpriteJugador;
     ImageIcon SpriteMonstruo = ImagenFactory.getImagen(6);
     JLabel JugadorLabel = new JLabel(SpriteJugador);
-    JLabel Monstruo = new JLabel(SpriteMonstruo);
+    JLabel MonstruoLabel = new JLabel(SpriteMonstruo);
     JButton Atacar = new JButton("Atacar");
     JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
@@ -47,16 +49,25 @@ public class Juego extends JPanel{
             CajaDeTexto.setText("Hombre Lobo: Volveré y no podrás vencerme la proxima!");
         }
     };
+    ActionListener Puntos = new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int num = new Random().nextInt((Monstruo.getLvl()*100)-51)+50;
+            Jugador.setPuntos(Jugador.getPuntos()+num);
+            CajaDeTexto.setText(Jugador.getNombre()+" ha ganado "+num+" puntos!");
+        }
+    };
     ActionListener Tienda = new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e) {
+            Monstruo.setLvl(Monstruo.getLvl()+1);
             Auxiliar.Tienda();
         }
     };
     ActionListener Perder = new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e) {
-            CajaDeTexto.setText("Hombre Lobo: Suerte la proxima, Familia Creepy!");
+            CajaDeTexto.setText("Hombre Lobo: Suerte la proxima, Creepy Family!");
         }
     };
     ActionListener GameOver = new ActionListener(){
@@ -77,7 +88,7 @@ public class Juego extends JPanel{
         Background.setIcon(ImagenFactory.getImagen(8));
         Background.setBounds(0,0,700,500);
         JugadorLabel.setBounds(0,50,300,300);
-        Monstruo.setBounds(400,50,300,300);
+        MonstruoLabel.setBounds(400,50,300,300);
         Inventario.setBounds(600,400,100,50);
         Atacar.setBounds(500,400,100,50);
         CajaDeTexto.setBounds(0,400,500,100);
@@ -128,9 +139,13 @@ public class Juego extends JPanel{
                            Timer timerGanar = new Timer(2000,Ganar);
                            timerGanar.setRepeats(false);
                            timerGanar.start();
-                           Timer timerTienda = new Timer(4000,Tienda);
+                           Timer timerPuntos = new Timer(4000,Puntos);
+                           timerPuntos.setRepeats(false);
+                           timerPuntos.start();
+                           Timer timerTienda = new Timer(6000,Tienda);
                            timerTienda.setRepeats(false);
                            timerTienda.start();
+                           
                            CajaDeTexto.setText(Jugador.getNombre()+" ha derrotado a Hombre lobo!");
                        }
                    }
@@ -144,7 +159,7 @@ public class Juego extends JPanel{
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Background);
         Background.add(JugadorLabel);
-        Background.add(Monstruo);
+        Background.add(MonstruoLabel);
         Background.add(Atacar);
         Background.add(Inventario);
         Background.add(CajaDeTexto);
