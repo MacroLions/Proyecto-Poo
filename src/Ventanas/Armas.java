@@ -258,7 +258,7 @@ public class Armas extends JPanel {
         });
 
         //agregando botones 
-        add(ButtonCancelar);
+        //add(ButtonCancelar);
         add(ButtonVolver);
         add(puntosJugador);
         add(total);
