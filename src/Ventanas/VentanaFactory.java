@@ -35,6 +35,8 @@ public class VentanaFactory {
                 return new Armas();
             case 9:
                 return new Controles();
+            case 10:
+                return new Win();
         }
         return null;
     }
