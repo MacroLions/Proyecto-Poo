@@ -14,8 +14,9 @@ import java.util.Random;
  * @author Maishi
  */
 public class Monstruo{
-    int vida= 200;
-    int Damage= 20;
+    static int lvl=1;
+    int vida= 50*lvl;
+    int Damage= 10*lvl;
     int DamageMin= (int) (Damage*.15);
     
     public Monstruo(){}
@@ -37,6 +38,14 @@ public class Monstruo{
 
     public void setVida(int vida) {
         this.vida = vida;
+    }
+
+    public static int getLvl() {
+        return lvl;
+    }
+
+    public static void setLvl(int lvl) {
+        Monstruo.lvl = lvl;
     }
     
     
