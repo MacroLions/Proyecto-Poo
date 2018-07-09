@@ -50,8 +50,8 @@ public class Win extends JPanel{
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
         add(Wins);
-        add(ContinueButton);
-        add(ButtonSalir);
+        Wins.add(ContinueButton);
+        Wins.add(ButtonSalir);
   
         validate();
         AudioPlayer.player.stop(Music.getAudio());
