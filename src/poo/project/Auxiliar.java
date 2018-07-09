@@ -137,7 +137,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         Win.getContinueButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -145,7 +145,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
+
         GameOver.getGOButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -161,11 +161,18 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-        
-        Tienda.getButtonObjetoFinal().addActionListener(new ActionListener(){
+
+        Tienda.getButtonObjetoFinal().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
+                VentanaAModificar.validate();
+            }
+        });
+        Consumibles.getButtonVolver().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(6));
                 VentanaAModificar.validate();
             }
         });
