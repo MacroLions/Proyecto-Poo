@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Imagenes.ImagenFactory;
+import Objetos.Arma;
 import Personajes.Jugador;
 import Personajes.Monstruo;
 import java.awt.Dimension;
@@ -73,6 +74,8 @@ public class Juego extends JPanel{
     ActionListener GameOver = new ActionListener(){
         @Override
         public void actionPerformed(ActionEvent e) {
+            Jugador.setVida(200);
+            Jugador.setArmaActual(new Arma("Mani",20));
             Auxiliar.GameOver();
         }
     };
