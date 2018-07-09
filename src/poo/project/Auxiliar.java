@@ -12,11 +12,13 @@ import Ventanas.Armas;
 import Ventanas.Consumibles;
 import Ventanas.Controles;
 import Ventanas.Final;
+import Ventanas.GameOver;
 import Ventanas.Inicio;
 import Ventanas.Juego;
 import Ventanas.Seleccion;
 import Ventanas.Tienda;
 import Ventanas.VentanaFactory;
+import Ventanas.Win;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -134,7 +136,22 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
+        Win.getContinueButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(1));
+                VentanaAModificar.validate();
+            }
+        });
+        
+        GameOver.getGOButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(1));
+                VentanaAModificar.validate();
+            }
+        });
 
         Final.getButtonMenu().addActionListener(new ActionListener() {
             @Override
