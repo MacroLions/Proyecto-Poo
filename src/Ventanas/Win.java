@@ -26,8 +26,9 @@ public class Win extends JPanel{
     public int HEIGHT = 500;
     
     ImageIcon WinIMG = new ImageIcon("src\\Imagenes\\YouWin.png");
-    JButton WinButton = new JButton();
-    JLabel Win = new JLabel();
+    static JButton ContinueButton = new JButton();
+    JButton ButtonSalir = new JButton();
+    JLabel Wins = new JLabel();
 
     public Win(){
         File imageCheck = new File("src\\Imagenes\\YouWin.png");
@@ -37,20 +38,39 @@ public class Win extends JPanel{
             System.out.println("Image file not found!");
         }
         
-        Win.setIcon(WinIMG);
-        Win.setBounds(0,0,700,500);
+        Wins.setIcon(WinIMG);
+        Wins.setBounds(0,0,700,500);
         
-        WinButton.setText("Reintentar");
-        WinButton.setBounds(300, 420, 100, 50);
-      
+        ContinueButton.setText("Continuar");
+        ContinueButton.setBounds(400, 420, 100, 50);
+        
+        ButtonSalir.setText("Salir");
+        ButtonSalir.setBounds(200, 420, 100, 50);      
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        add(Win);
-        add(WinButton);
+        add(Wins);
+        add(ContinueButton);
+        add(ButtonSalir);
   
         validate();
-        //AudioPlayer.player.stop(Music.getAudio());
-        //Music.GameOverTheme();
-    }    
+        AudioPlayer.player.stop(Music.getAudio());
+        Music.ShopTheme();
+        
+        ButtonSalir.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }            
+        });
+        
+    }
+
+    public static JButton getContinueButton() {
+        return ContinueButton;
+    }
+
+    public static void setContinueButton(JButton ContinueButton) {
+        Win.ContinueButton = ContinueButton;
+    }
 }
