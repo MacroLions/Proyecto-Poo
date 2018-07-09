@@ -60,10 +60,7 @@ public class Consumibles extends JPanel {
     JTextField text7 = new JTextField();
     JTextField text8 = new JTextField();
 
-    //No es necesario que los objetos en ventan sean estaticos, solamente confirmacion y cancelar para regresara a la pantalla anterior
-    //Los otros no son necesarios porque la lista de consumbiles de ljugador ES LA QUE DEBE SER STATIC para ser modificada.
-    //ALGUNOS BOTONES NO HAN SIDO AGREGADOS, POR FAVOR GUARDE LA PACIENCIA PARA HACER ADD LUEGO NOS VA A PASAR LO MISMO QUE EL MODPACKS();
-    //Fakiu
+    
     JLabel puntosJugador, total, lblBackground;
     JLabel lblTitulo, lblGalleta, lblJugo, lblPupusa, lblEmpanada, lblChocolate, lblLista_objetos, lblPuntos_acumulados;
     JLabel lblSoda, lblLeche, lblChurro;
