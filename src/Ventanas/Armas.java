@@ -111,7 +111,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+100);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 100);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -131,7 +132,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+100);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 150);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -151,7 +153,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+90);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 90);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -171,7 +174,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+50);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 50);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -191,7 +195,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+5);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 5);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -211,7 +216,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+10);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 10);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -231,7 +237,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+40);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 40);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
@@ -251,7 +258,8 @@ public class Armas extends JPanel {
                 Jugador.setCompra(Jugador.getCompra()+100);
                 total.setText("Total de compra: " + Jugador.getCompra());
                 //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                if (Jugador.ValidarComprar()) {
+                Jugador j = new Jugador();
+                if (j.ValidarCompra()) {
                     //Se cobra al jugador, le restamos puntos
                     Jugador.setPuntos(Jugador.getPuntos() - 100);
                     //Almacenamos la cantidad de puntos que se le cobraran en la compra
