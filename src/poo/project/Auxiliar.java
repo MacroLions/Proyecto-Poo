@@ -132,6 +132,7 @@ public class Auxiliar {
         Armas.getButtonVolver().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Jugador.setCompra(0);
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
                 VentanaAModificar.validate();
             }
@@ -157,6 +158,14 @@ public class Auxiliar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.setContentPane(VentanaFactory.getVentana(1));
+                VentanaAModificar.validate();
+            }
+        });
+        
+        Tienda.getButtonObjetoFinal().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
                 VentanaAModificar.validate();
             }
         });
