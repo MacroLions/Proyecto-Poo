@@ -89,6 +89,16 @@ public class Jugador {
         }
         return compraRealizada;
     }
+    
+    public static boolean ValidarCompra(int Deuda){
+        if(Deuda> Jugador.Puntos){
+            System.out.println("No se puede");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
     public static Arma getArmaActual() {
         return ArmaActual;
