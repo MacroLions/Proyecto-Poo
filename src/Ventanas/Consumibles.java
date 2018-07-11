@@ -26,10 +26,12 @@ public class Consumibles extends JPanel {
 
     public int WIDTH = 700;
     public int HEIGHT = 500;
+    
+    private int PuntosCompra = 0;
 
     ImageIcon ObjetoFinalIMG = new ImageIcon("src\\Imagenes\\objetofinal.jpg");
     static JButton ButtonConfirmacion = new JButton("CONFIRMAR");
-    static JButton ButtonCancelar = new JButton("CANCELAR");
+    JButton ButtonCancelar = new JButton("CANCELAR");
     static JButton ButtonVolver = new JButton("VOLVER");
 
     JButton Button1 = new JButton("+");
@@ -59,7 +61,7 @@ public class Consumibles extends JPanel {
     JTextField text6 = new JTextField("0");
     JTextField text7 = new JTextField("0");
     JTextField text8 = new JTextField("0");
-    JTextField totalCompra = new JTextField("0");
+    JTextField totalCompra = new JTextField("0 Puntos");
     
     JLabel puntosJugador, total, lblBackground;
     JLabel lblTitulo, lblGalleta, lblJugo, lblPupusa, lblEmpanada, lblChocolate, lblLista_objetos, lblPuntos_acumulados;
@@ -77,28 +79,32 @@ public class Consumibles extends JPanel {
         lblTitulo.setBounds(250, 15, 300, 30);
 
         //EMPIEZAN LOS BOTONES PARA OBTENER CONSUMIBLES
-        lblGalleta = new JLabel("Galleta 10 pts");
-        lblGalleta.setFont(new Font("Arial", Font.BOLD, 16));
-        lblGalleta.setForeground(Color.WHITE);
-        lblGalleta.setBounds(50, 100, 400, 20);
+        Button1.setBounds(344, 100, 60, 20);
+        Button2.setBounds(344, 130, 60, 20);
+        Button3.setBounds(344, 160, 60, 20);
+        Button4.setBounds(344, 190, 60, 20);
+        Button5.setBounds(344, 220, 60, 20);
+        Button6.setBounds(344, 250, 60, 20);
+        Button7.setBounds(344, 280, 60, 20);
+        Button8.setBounds(344, 310, 60, 20);
 
-        Button1.setBounds(240, 100, 100, 20);
-        Button2.setBounds(240, 130, 100, 20);
-        Button3.setBounds(240, 160, 100, 20);
-        Button4.setBounds(240, 190, 100, 20);
-        Button5.setBounds(240, 220, 100, 20);
-        Button6.setBounds(240, 250, 100, 20);
-        Button7.setBounds(240, 280, 100, 20);
-        Button8.setBounds(240, 310, 100, 20);
-
-        text1.setBounds(362, 100, 60, 20);
-        text2.setBounds(362, 130, 60, 20);
-        text3.setBounds(362, 160, 60, 20);
-        text4.setBounds(362, 190, 60, 20);
-        text5.setBounds(362, 220, 60, 20);
-        text6.setBounds(362, 250, 60, 20);
-        text7.setBounds(362, 280, 60, 20);
-        text8.setBounds(362, 310, 60, 20);
+        text1.setBounds(422, 100, 60, 20);
+        text2.setBounds(422, 130, 60, 20);
+        text3.setBounds(422, 160, 60, 20);
+        text4.setBounds(422, 190, 60, 20);
+        text5.setBounds(422, 220, 60, 20);
+        text6.setBounds(422, 250, 60, 20);
+        text7.setBounds(422, 280, 60, 20);
+        text8.setBounds(422, 310, 60, 20);
+       
+        Button11.setBounds(500, 100, 60, 20);
+        Button22.setBounds(500, 130, 60, 20);
+        Button33.setBounds(500, 160, 60, 20);
+        Button44.setBounds(500, 190, 60, 20);
+        Button55.setBounds(500, 220, 60, 20);
+        Button66.setBounds(500, 250, 60, 20);
+        Button77.setBounds(500, 280, 60, 20);
+        Button88.setBounds(500, 310, 60, 20);
 
         text1.setEditable(false);
         text2.setEditable(false);
@@ -109,50 +115,46 @@ public class Consumibles extends JPanel {
         text7.setEditable(false);
         text8.setEditable(false);
         
-        lblJugo = new JLabel("Jugo 20 pts");
+        lblGalleta = new JLabel("Galleta           10 pts      (+10 HP)");
+        lblGalleta.setFont(new Font("Arial", Font.BOLD, 16));
+        lblGalleta.setForeground(Color.WHITE);
+        lblGalleta.setBounds(90, 100, 400, 20);
+        
+        lblJugo = new JLabel("Jugo              20 pts      (+20 HP)");
         lblJugo.setFont(new Font("Arial", Font.BOLD, 16));
         lblJugo.setForeground(Color.WHITE);
-        lblJugo.setBounds(50, 130, 400, 20);
+        lblJugo.setBounds(90, 130, 400, 20);
 
-        Button11.setBounds(440, 100, 100, 20);
-        Button22.setBounds(440, 130, 100, 20);
-        Button33.setBounds(440, 160, 100, 20);
-        Button44.setBounds(440, 190, 100, 20);
-        Button55.setBounds(440, 220, 100, 20);
-        Button66.setBounds(440, 250, 100, 20);
-        Button77.setBounds(440, 280, 100, 20);
-        Button88.setBounds(440, 310, 100, 20);
-
-        lblPupusa = new JLabel("Pupusa 30 pts");
+        lblPupusa = new JLabel("Pupusa         30 pts      (+30 HP)");
         lblPupusa.setFont(new Font("Arial", Font.BOLD, 16));
         lblPupusa.setForeground(Color.WHITE);
-        lblPupusa.setBounds(50, 160, 400, 20);
+        lblPupusa.setBounds(90, 160, 400, 20);
 
-        lblEmpanada = new JLabel("Empanada 25 pts");
+        lblEmpanada = new JLabel("Empanada   25 pts      (+25 HP)");
         lblEmpanada.setFont(new Font("Arial", Font.BOLD, 16));
         lblEmpanada.setForeground(Color.WHITE);
-        lblEmpanada.setBounds(50, 190, 400, 20);
+        lblEmpanada.setBounds(90, 190, 400, 20);
 
         //consumibles ubicados a la derecha
-        lblSoda = new JLabel("Soda 40 pts");
+        lblSoda = new JLabel("Soda              40 pts      (+30 HP)");
         lblSoda.setFont(new Font("Arial", Font.BOLD, 16));
         lblSoda.setForeground(Color.WHITE);
-        lblSoda.setBounds(50, 220, 400, 20);
+        lblSoda.setBounds(90, 220, 400, 20);
 
-        lblLeche = new JLabel("Leche 40 pts");
+        lblLeche = new JLabel("Leche            40 pts      (+50 HP)");
         lblLeche.setFont(new Font("Arial", Font.BOLD, 16));
         lblLeche.setForeground(Color.WHITE);
-        lblLeche.setBounds(50, 250, 400, 20);
+        lblLeche.setBounds(90, 250, 400, 20);
 
-        lblChurro = new JLabel("Churro 10 pts");
+        lblChurro = new JLabel("Churro          05 pts      (+05 HP)");
         lblChurro.setFont(new Font("Arial", Font.BOLD, 16));
         lblChurro.setForeground(Color.WHITE);
-        lblChurro.setBounds(50, 280, 400, 20);
+        lblChurro.setBounds(90, 280, 400, 20);
 
-        lblChocolate = new JLabel("Chocolate 15 pts");
+        lblChocolate = new JLabel("Chocolate    15 pts      (+15 HP)");
         lblChocolate.setFont(new Font("Arial", Font.BOLD, 16));
         lblChocolate.setForeground(Color.WHITE);
-        lblChocolate.setBounds(50, 310, 400, 20);
+        lblChocolate.setBounds(90, 310, 400, 20);
 
         total = new JLabel("Total de compra:");
         total.setFont(new Font("Arial", Font.BOLD, 16));
@@ -165,11 +167,9 @@ public class Consumibles extends JPanel {
         puntosJugador = new JLabel("Puntos: " + Jugador.getPuntos());
         puntosJugador.setFont(new Font("Arial", Font.BOLD, 16));
         puntosJugador.setForeground(Color.WHITE);
-        puntosJugador.setBounds(50, 375, 125, 75);
+        puntosJugador.setBounds(90, 375, 125, 75);
 
-        //TERMINAN LOS BOTONES DE CONSUMIBLES
-        
-        //+ Y -
+        //Eventos
         //+
         SumaoResta(Button1,text1,true,10);
         SumaoResta(Button2,text2,true,20);
@@ -188,6 +188,41 @@ public class Consumibles extends JPanel {
         SumaoResta(Button66,text6,false,40);
         SumaoResta(Button77,text7,false,10);
         SumaoResta(Button88,text8,false,15);
+        //Cancelar
+        ButtonCancelar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PuntosCompra=0;
+                text1.setText("0");
+                text2.setText("0");
+                text3.setText("0");
+                text4.setText("0");
+                text5.setText("0");
+                text6.setText("0");
+                text7.setText("0");
+                text8.setText("0");
+                totalCompra.setText("0 Puntos");
+            }
+        });
+        //Confirmar
+        ButtonConfirmacion.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                System.out.println("Esto ocurre luego de darle los objetos al jugador (Si es posible)");
+                PuntosCompra=0;
+                text1.setText("0");
+                text2.setText("0");
+                text3.setText("0");
+                text4.setText("0");
+                text5.setText("0");
+                text6.setText("0");
+                text7.setText("0");
+                text8.setText("0");
+                totalCompra.setText("0 Puntos");
+                
+            }
+        });
 
         //BOTONES DE FUNCION
         ButtonConfirmacion.setBounds(400, 390, 125, 75);
@@ -245,13 +280,6 @@ public class Consumibles extends JPanel {
         validate();
     }
 
-    public static JButton getButtonCancelar() {
-        return ButtonCancelar;
-    }
-
-    public static void setButtonCancelar(JButton ButtonCancelar) {
-        Consumibles.ButtonCancelar = ButtonCancelar;
-    }
 
     public static JButton getButtonVolver() {
         return ButtonVolver;
@@ -267,7 +295,8 @@ public class Consumibles extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     TF.setText(Integer.toString(Integer.parseInt(TF.getText())+1));
-                    totalCompra.setText(Integer.toString(Integer.parseInt(totalCompra.getText())+Integer.parseInt(TF.getText())*precio));
+                    PuntosCompra=PuntosCompra+precio;
+                    totalCompra.setText(PuntosCompra+" Puntos");
                 }
             });
         }else{
@@ -275,7 +304,8 @@ public class Consumibles extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if(Integer.parseInt(TF.getText())!=0){
-                        totalCompra.setText(Integer.toString(Integer.parseInt(totalCompra.getText())-Integer.parseInt(TF.getText())*precio));
+                        PuntosCompra=PuntosCompra-precio;
+                        totalCompra.setText(PuntosCompra+" Puntos");
                         TF.setText(Integer.toString(Integer.parseInt(TF.getText())-1));
                     }
                 }
