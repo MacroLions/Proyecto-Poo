@@ -19,7 +19,7 @@ public class Jugador {
     static String nombre = "Juanito Scarlet";
     static int Puntos;
     static int compra;
-    ArrayList<Consumible> Consumibles;
+    static ArrayList<Consumible> Consumibles;
     static Arma ArmaActual = new Arma("Mani", 30);
     static int vida = 200;
 
@@ -108,12 +108,12 @@ public class Jugador {
         Jugador.ArmaActual = ArmaActual;
     }
 
-    public ArrayList<Consumible> getConsumibles() {
+    public static ArrayList<Consumible> getConsumibles() {
         return Consumibles;
     }
 
-    public void setConsumibles(ArrayList<Consumible> Consumibles) {
-        this.Consumibles = Consumibles;
+    public static void setConsumibles(ArrayList<Consumible> Consumibles) {
+        Jugador.Consumibles = Consumibles;
     }
     
 
