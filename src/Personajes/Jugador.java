@@ -19,7 +19,7 @@ public class Jugador {
     static String nombre = "Juanito Scarlet";
     static int Puntos;
     static int compra;
-    static ArrayList<Consumible> Consumibles;
+    static ArrayList<Consumible> Consumibles = new ArrayList<Consumible>();
     static Arma ArmaActual = new Arma("Mani", 30);
     static int vida = 200;
 
