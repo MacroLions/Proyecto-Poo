@@ -37,6 +37,8 @@ public class VentanaFactory {
                 return new Controles();
             case 10:
                 return new Win();
+            case 11:
+                return new Inventario();
         }
         return null;
     }

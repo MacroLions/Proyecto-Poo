@@ -14,6 +14,7 @@ import Ventanas.Controles;
 import Ventanas.Final;
 import Ventanas.GameOver;
 import Ventanas.Inicio;
+import Ventanas.Inventario;
 import Ventanas.Juego;
 import Ventanas.Seleccion;
 import Ventanas.Tienda;
@@ -176,7 +177,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
-
+        
     }
 
     public static void Tienda() {
