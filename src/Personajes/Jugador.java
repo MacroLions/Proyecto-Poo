@@ -107,6 +107,14 @@ public class Jugador {
     public static void setArmaActual(Arma ArmaActual) {
         Jugador.ArmaActual = ArmaActual;
     }
+
+    public ArrayList<Consumible> getConsumibles() {
+        return Consumibles;
+    }
+
+    public void setConsumibles(ArrayList<Consumible> Consumibles) {
+        this.Consumibles = Consumibles;
+    }
     
 
 }
