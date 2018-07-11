@@ -6,6 +6,7 @@
 package Ventanas;
 
 import Imagenes.ImagenFactory;
+import Objetos.Consumible;
 import Personajes.Jugador;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -30,9 +32,11 @@ public class Consumibles extends JPanel {
     private int PuntosCompra = 0;
 
     ImageIcon ObjetoFinalIMG = new ImageIcon("src\\Imagenes\\objetofinal.jpg");
-    static JButton ButtonConfirmacion = new JButton("CONFIRMAR");
+    JButton ButtonConfirmacion = new JButton("CONFIRMAR");
     JButton ButtonCancelar = new JButton("CANCELAR");
     static JButton ButtonVolver = new JButton("VOLVER");
+    
+    
 
     JButton Button1 = new JButton("+");
     JButton Button2 = new JButton("+");
@@ -208,18 +212,32 @@ public class Consumibles extends JPanel {
         ButtonConfirmacion.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                System.out.println("Esto ocurre luego de darle los objetos al jugador (Si es posible)");
-                PuntosCompra=0;
-                text1.setText("0");
-                text2.setText("0");
-                text3.setText("0");
-                text4.setText("0");
-                text5.setText("0");
-                text6.setText("0");
-                text7.setText("0");
-                text8.setText("0");
-                totalCompra.setText("0 Puntos");
+                if(Jugador.ValidarCompra(PuntosCompra)){
+                    Jugador.setPuntos(Jugador.getPuntos()-PuntosCompra);
+                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
+                    Compra(text1,"Galleta",10);
+                    Compra(text2,"Jugo",20);
+                    Compra(text3,"Pupusa",30);
+                    Compra(text4,"Empanada",25);
+                    Compra(text5,"Soda",30);
+                    Compra(text6,"Leche",50);
+                    Compra(text7,"Churro",5);
+                    Compra(text8,"Chocolate",15);
+                    JOptionPane.showMessageDialog(null,"Compra realizada con exito!");
+                    PuntosCompra=0;
+                    text1.setText("0");
+                    text2.setText("0");
+                    text3.setText("0");
+                    text4.setText("0");
+                    text5.setText("0");
+                    text6.setText("0");
+                    text7.setText("0");
+                    text8.setText("0");
+                    totalCompra.setText("0 Puntos");
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"No cuentas con suficientes puntos para realizar la compra!");
+                }
                 
             }
         });
@@ -310,6 +328,12 @@ public class Consumibles extends JPanel {
                     }
                 }
             });
+        }
+    }
+    
+    private void Compra(JTextField TF,String nombreObjeto,int vidaRecuperada){
+        for(int i=0; i<(Integer.parseInt(TF.getText())); i++){
+            Jugador.getConsumibles().add(new Consumible(nombreObjeto,vidaRecuperada));
         }
     }
 }
