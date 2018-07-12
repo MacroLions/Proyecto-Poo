@@ -179,6 +179,16 @@ public class Auxiliar {
         });
         
     }
+    
+    public static void configClose(JFrame VentanaAModificar){
+        Inventario.getCerrarInventario().addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaAModificar.dispose();
+            }
+        });
+    
+    }
 
     public static void Tienda() {
         Auxiliar.VentanaAModificar.setContentPane(VentanaFactory.getVentana(4));
