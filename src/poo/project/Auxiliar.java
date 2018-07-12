@@ -23,6 +23,7 @@ import Ventanas.Win;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -74,6 +75,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Seleccion.getButtonMama().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,6 +84,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Seleccion.getButtonHermana().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -90,6 +93,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Seleccion.getButtonHermano().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -98,6 +102,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Tienda.getButtonArmas().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -105,6 +110,7 @@ public class Auxiliar {
                 VentanaAModificar.validate();
             }
         });
+        
         Tienda.getButtonConsumibles().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -113,7 +119,7 @@ public class Auxiliar {
             }
         });
 
-        //Juego.getButton
+
         Tienda.getButtonSalir().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -166,8 +172,13 @@ public class Auxiliar {
         Tienda.getButtonObjetoFinal().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
-                VentanaAModificar.validate();
+                if(Jugador.getPuntos()>=1000){
+                    VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
+                    VentanaAModificar.validate();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"No puedes comprar el objeto final aún!");
+                }
             }
         });
         Consumibles.getButtonVolver().addActionListener(new ActionListener() {
