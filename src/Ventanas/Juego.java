@@ -43,7 +43,7 @@ public class Juego extends JPanel{
     JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
     JLabel Background = new JLabel();
-    JLabel VidaJugador = new JLabel(Integer.toString(Jugador.getVida()));
+    static JLabel VidaJugador = new JLabel(Integer.toString(Jugador.getVida()));
     JLabel VidaMonstruo = new JLabel(Integer.toString(monstruo.getVida()));
     ActionListener Ganar = new ActionListener(){
         @Override
@@ -195,6 +195,15 @@ public class Juego extends JPanel{
     public static void setSprite(ImageIcon SpriteJugador) {
         Juego.SpriteJugador = SpriteJugador;
     }
+
+    public static JLabel getVidaJugador() {
+        return VidaJugador;
+    }
+
+    public static void setVidaJugador(JLabel VidaJugador) {
+        Juego.VidaJugador = VidaJugador;
+    }
+    
     
     
 }

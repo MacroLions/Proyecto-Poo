@@ -6,6 +6,8 @@
 package Ventanas;
 
 import Imagenes.ImagenFactory;
+import Objetos.Consumible;
+import Personajes.Jugador;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -62,9 +64,19 @@ public class Inventario extends JPanel{
         CerrarInventario= new JButton("Cerrar Inventario");
         CerrarInventario.setBounds(350,350,150,50);
         
+        //Comprobador
+        ComprobarInventario(BGalleta, "Galleta");
+        
         //Eventos
+        ActionRecuperarVida(BGalleta,10);
+        ActionRecuperarVida(BJugo,20);
+        ActionRecuperarVida(BEmpanada,30);
+        ActionRecuperarVida(BPupusa,25);
         
-        
+        ActionRecuperarVida(BSoda,30);
+        ActionRecuperarVida(BLeche,50);
+        ActionRecuperarVida(BChurro,5);
+        ActionRecuperarVida(BChocolate,15);
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -91,6 +103,33 @@ public class Inventario extends JPanel{
 
     public static void setCerrarInventario(JButton ButtonCerrarInventario) {
         Inventario.CerrarInventario = ButtonCerrarInventario;
+    }
+    
+    private void ActionRecuperarVida(JButton B,int vida){
+        B.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Jugador.setVida(Jugador.getVida()+vida);
+                Juego.getVidaJugador().setText(Integer.toString(Jugador.getVida()));
+            }
+        });
+    }
+    
+    private void ComprobarInventario(JButton B, String ConsumibleABuscar){
+        if(Jugador.getConsumibles().isEmpty()){
+            B.setEnabled(false);
+        }
+        else{
+            for(int i = 0; i < Jugador.getConsumibles().size(); i++){
+                if(Jugador.getConsumibles().get(i).getNombre()==ConsumibleABuscar){
+                    B.setEnabled(true);
+                }
+                else{
+                    B.setEnabled(false);
+                }
+            }
+        }
+        
     }
 
 }

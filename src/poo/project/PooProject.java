@@ -23,6 +23,7 @@ public class PooProject {
         ventana.setResizable(false);
         ventana.pack();
         ventana.setVisible(true);
+        
     }
     
 }
