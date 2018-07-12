@@ -21,6 +21,7 @@ import SFX.Music;
 import java.awt.Color;
 import static java.lang.Math.random;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.Timer;
 import poo.project.Auxiliar;
 import sun.audio.AudioPlayer;
@@ -157,6 +158,20 @@ public class Juego extends JPanel{
                timer.start();
                }  
         });
+        //Inventario
+        Inventario.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame InventarioFrame = new JFrame();
+                InventarioFrame.setContentPane(new Inventario());
+                InventarioFrame.setResizable(false);
+                InventarioFrame.pack();
+                InventarioFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+                Auxiliar.configClose(InventarioFrame);
+                InventarioFrame.setVisible(true);
+            }
+        });
+        
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
