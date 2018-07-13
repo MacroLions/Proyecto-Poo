@@ -40,7 +40,7 @@ public class Juego extends JPanel{
     JLabel JugadorLabel = new JLabel(SpriteJugador);
     JLabel MonstruoLabel = new JLabel(SpriteMonstruo);
     JButton Atacar = new JButton("Atacar");
-    JButton Inventario = new JButton("Inventario");
+    static JButton Inventario = new JButton("Inventario");
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
     JLabel Background = new JLabel();
     static JLabel VidaJugador = new JLabel(Integer.toString(Jugador.getVida()));
@@ -169,6 +169,7 @@ public class Juego extends JPanel{
                 InventarioFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
                 Auxiliar.configClose(InventarioFrame);
                 InventarioFrame.setVisible(true);
+                Inventario.setEnabled(false);
             }
         });
         
@@ -202,6 +203,14 @@ public class Juego extends JPanel{
 
     public static void setVidaJugador(JLabel VidaJugador) {
         Juego.VidaJugador = VidaJugador;
+    }
+
+    public static JButton getInventario() {
+        return Inventario;
+    }
+
+    public static void setInventario(JButton Inventario) {
+        Juego.Inventario = Inventario;
     }
     
     
