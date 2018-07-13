@@ -196,6 +196,7 @@ public class Auxiliar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VentanaAModificar.dispose();
+                Juego.getInventario().setEnabled(true);
             }
         });
     
