@@ -333,6 +333,8 @@ public class Consumibles extends JPanel {
     
     private void Compra(JTextField TF,String nombreObjeto,int vidaRecuperada){
         for(int i=0; i<(Integer.parseInt(TF.getText())); i++){
+            //Consumible test= new Consumible(nombreObjeto,vidaRecuperada);
+            //System.out.println(test.getNombre());
             Jugador.getConsumibles().add(new Consumible(nombreObjeto,vidaRecuperada));
         }
     }
