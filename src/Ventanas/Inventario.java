@@ -66,17 +66,25 @@ public class Inventario extends JPanel{
         
         //Comprobador
         ComprobarInventario(BGalleta, "Galleta");
+        ComprobarInventario(BJugo, "Jugo");
+        ComprobarInventario(BEmpanada, "Empanada");
+        ComprobarInventario(BPupusa, "Pupusa");
+        
+        ComprobarInventario(BSoda, "Soda");
+        ComprobarInventario(BLeche, "Leche");
+        ComprobarInventario(BChurro, "Churro");
+        ComprobarInventario(BChocolate, "Chocolate");
         
         //Eventos
-        ActionRecuperarVida(BGalleta,10);
-        ActionRecuperarVida(BJugo,20);
-        ActionRecuperarVida(BEmpanada,30);
-        ActionRecuperarVida(BPupusa,25);
+        ActionRecuperarVida(BGalleta,10,"Galleta");
+        ActionRecuperarVida(BJugo,20,"Jugo");
+        ActionRecuperarVida(BEmpanada,30,"Empanada");
+        ActionRecuperarVida(BPupusa,25,"Pupusa");
         
-        ActionRecuperarVida(BSoda,30);
-        ActionRecuperarVida(BLeche,50);
-        ActionRecuperarVida(BChurro,5);
-        ActionRecuperarVida(BChocolate,15);
+        ActionRecuperarVida(BSoda,30,"Soda");
+        ActionRecuperarVida(BLeche,50,"Leche");
+        ActionRecuperarVida(BChurro,5,"Churro");
+        ActionRecuperarVida(BChocolate,15,"Chocolate");
         
         setLayout(null);
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -105,29 +113,41 @@ public class Inventario extends JPanel{
         Inventario.CerrarInventario = ButtonCerrarInventario;
     }
     
-    private void ActionRecuperarVida(JButton B,int vida){
+    private void ActionRecuperarVida(JButton B,int vida,String ConsumibleUtilizado){
         B.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 Jugador.setVida(Jugador.getVida()+vida);
                 Juego.getVidaJugador().setText(Integer.toString(Jugador.getVida()));
+                for(int i = 0; i < Jugador.getConsumibles().size(); i++){
+                    if(Jugador.getConsumibles().get(i).getNombre()==ConsumibleUtilizado){
+                       Jugador.getConsumibles().remove(i);
+                        System.out.println(Jugador.getConsumibles().toString());
+                       break;
+                    }
+                }
+                ComprobarInventario(B,ConsumibleUtilizado);
             }
         });
     }
     
     private void ComprobarInventario(JButton B, String ConsumibleABuscar){
+        int contador = 0;
         if(Jugador.getConsumibles().isEmpty()){
             B.setEnabled(false);
         }
         else{
             for(int i = 0; i < Jugador.getConsumibles().size(); i++){
                 if(Jugador.getConsumibles().get(i).getNombre()==ConsumibleABuscar){
-                    B.setEnabled(true);
-                }
-                else{
-                    B.setEnabled(false);
+                    contador = contador +1;
                 }
             }
+        }
+        if(contador>0){
+            B.setEnabled(true);
+        }
+        else{
+            B.setEnabled(false);
         }
         
     }
