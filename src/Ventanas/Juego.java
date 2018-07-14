@@ -40,7 +40,7 @@ public class Juego extends JPanel{
     JLabel JugadorLabel = new JLabel(SpriteJugador);
     JLabel MonstruoLabel = new JLabel(SpriteMonstruo);
     JButton Atacar = new JButton("Atacar");
-    static JButton Inventario = new JButton("Inventario");
+    static JButton Inventario;
     JLabel CajaDeTexto = new JLabel("Lobo salvaje ha aparecido!");
     JLabel Background = new JLabel();
     static JLabel VidaJugador = new JLabel(Integer.toString(Jugador.getVida()));
@@ -83,6 +83,7 @@ public class Juego extends JPanel{
     
     
     public Juego(){
+        Inventario = new JButton("Inventario");
         VidaJugador.setBounds(100, 10, 100, 20);
         VidaMonstruo.setBounds(500, 10, 100, 20);
         VidaJugador.setFont(new Font("Berlin Sans FB",Font.PLAIN,30));
@@ -159,6 +160,8 @@ public class Juego extends JPanel{
                }  
         });
         //Inventario
+            
+        
         Inventario.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
