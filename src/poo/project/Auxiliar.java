@@ -178,6 +178,7 @@ public class Auxiliar {
                     Monstruo.setLvl(1);
                     Jugador.setArmaActual(new Arma("Mani",20));
                     Jugador.setPuntos(0);
+                    Juego.getVidaJugador().setText(Integer.toString(Jugador.getVida()));
                     VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
                     VentanaAModificar.validate();
                 }
