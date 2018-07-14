@@ -77,6 +77,9 @@ public class Juego extends JPanel{
         public void actionPerformed(ActionEvent e) {
             Jugador.setVida(200);
             Jugador.setArmaActual(new Arma("Mani",20));
+            VidaJugador.setText(Integer.toString(Jugador.getVida()));
+            Monstruo.setLvl(1);
+            Jugador.setPuntos(0);
             Auxiliar.GameOver();
         }
     };
