@@ -8,6 +8,7 @@ package poo.project;
 import Imagenes.ImagenFactory;
 import Objetos.Arma;
 import Personajes.Jugador;
+import Personajes.Monstruo;
 import Ventanas.Armas;
 import Ventanas.Consumibles;
 import Ventanas.Controles;
@@ -173,6 +174,10 @@ public class Auxiliar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(Jugador.getPuntos()>=1000){
+                    Jugador.setVida(200);
+                    Monstruo.setLvl(1);
+                    Jugador.setArmaActual(new Arma("Mani",20));
+                    Jugador.setPuntos(0);
                     VentanaAModificar.setContentPane(VentanaFactory.getVentana(10));
                     VentanaAModificar.validate();
                 }
