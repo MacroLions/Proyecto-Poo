@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import poo.project.Auxiliar;
@@ -33,19 +34,35 @@ public class Armas extends JPanel {
     ImageIcon ObjetoFinalIMG = new ImageIcon("src\\Imagenes\\objetofinal.jpg");
     JButton ButtonCancelar = new JButton("CANCELAR");
     static JButton ButtonVolver = new JButton("VOLVER");
-    JButton ButtonChancla = new JButton("Chancla 100 pts");
-    JButton ButtonCincho = new JButton("Cincho 150 pts");
-    JButton ButtonChiliyo = new JButton("Chiliyo 90 pts");
-    JButton ButtonZapato = new JButton("Zapato 50 pts");
-    JButton ButtonAlmohada = new JButton("Almohada 5 pts");
-    JButton ButtonPantunfla = new JButton("Pantunfla 10 pts");
-    JButton ButtonCartera = new JButton("Cartera 40 pts");
-    JButton ButtonBolson = new JButton("Bolson 100 pts");
-
+    
+    static JButton ButtonChancla,ButtonCincho,ButtonChiliyo,ButtonZapato,
+                   ButtonAlmohada,ButtonPantunfla,ButtonCartera,ButtonBolson;
     JLabel lblTitulo, lblBackground;
-    JLabel puntosJugador, total;
+    JLabel puntosJugador;
 
     public Armas() {
+        ButtonChancla = new JButton("Chancla 100 pts");
+        ButtonCincho = new JButton("Cincho 150 pts");
+        ButtonChiliyo = new JButton("Chiliyo 90 pts");
+        ButtonZapato = new JButton("Zapato 50 pts");
+        
+        ButtonAlmohada = new JButton("Almohada 5 pts");
+        ButtonPantunfla = new JButton("Pantunfla 10 pts");
+        ButtonCartera = new JButton("Cartera 40 pts");
+        ButtonBolson = new JButton("Bolson 100 pts");
+        
+        //Comprobador
+        Comprobador(ButtonChancla,"Chancla");
+        Comprobador(ButtonCincho,"Cincho");
+        Comprobador(ButtonChiliyo,"Chiliyo");
+        Comprobador(ButtonZapato,"Zapato");
+        
+        Comprobador(ButtonAlmohada,"Almohada");
+        Comprobador(ButtonPantunfla,"Pantufla");
+        Comprobador(ButtonCartera,"Cartera");
+        Comprobador(ButtonBolson,"Bolson");
+        
+        //Labels
         lblBackground= new JLabel();
         lblBackground.setIcon(ImagenFactory.getBackground(4));
         lblBackground.setBounds(0,0,700,500);
@@ -66,11 +83,6 @@ public class Armas extends JPanel {
         ButtonBolson.setBounds(420, 280, 150, 50);
         //TERMINAN LOS BOTONES DE ARMAS
 
-        total = new JLabel("Total de compra: " + Jugador.getCompra());
-        total.setFont(new Font("Arial", Font.BOLD, 16));
-        total.setForeground(Color.WHITE);
-        total.setBounds(250, 360, 200, 20);
-
         puntosJugador = new JLabel("Puntos: " + Jugador.getPuntos());
         puntosJugador.setFont(new Font("Arial", Font.BOLD, 16));
         puntosJugador.setForeground(Color.WHITE);
@@ -85,191 +97,69 @@ public class Armas extends JPanel {
         add(lblBackground);
         lblBackground.add(lblTitulo);
         
-        //Funcions de botones....
-        ButtonCancelar.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Le devuelve los puntos al jugador
-                Jugador.setPuntos(Jugador.getPuntos() + Jugador.getCompra());
-                //La compra vuelve a ser cero
-                Jugador.setCompra(0);
-                validate();
-                ButtonChancla.setEnabled(true);
-                ButtonCincho.setEnabled(true);
-                ButtonChiliyo.setEnabled(true);
-                ButtonZapato.setEnabled(true);
-                ButtonAlmohada.setEnabled(true);
-                ButtonPantunfla.setEnabled(true);
-                ButtonCartera.setEnabled(true);
-                ButtonBolson.setEnabled(true);
-            }
-        });
+        
         //Chancla
-        ButtonChancla.addActionListener(new ActionListener() {
+        ButtonChancla.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+100);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 100);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 100);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Chancla",200));
-                    ButtonChancla.setEnabled(false);
-                } else {
-                    ButtonChancla.setEnabled(true);
-                }
+                NuevaArma(ButtonChancla,"Chancla",200,100);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Cincho
         ButtonCincho.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+100);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 150);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 150);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Cincho",300));
-                    ButtonCincho.setEnabled(false);
-                } else {
-                    ButtonCincho.setEnabled(true);
-                }
+                NuevaArma(ButtonCincho,"Cincho",300,150);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Chiliyo
         ButtonChiliyo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+90);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 90);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 90);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Chiliyo",50));
-                    ButtonChiliyo.setEnabled(false);
-                } else {
-                    ButtonChiliyo.setEnabled(true);
-                }
+                NuevaArma(ButtonChiliyo,"Chiliyo",50,90);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Zapato
         ButtonZapato.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+50);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 50);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 50);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Zapato",30));
-                    ButtonZapato.setEnabled(false);
-                } else {
-                    ButtonZapato.setEnabled(true);
-                }
+                NuevaArma(ButtonZapato,"Zapato",30,50);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Almohada
         ButtonAlmohada.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+5);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 5);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 5);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Almohada",10));
-                    ButtonAlmohada.setEnabled(false);
-                } else {
-                    ButtonAlmohada.setEnabled(true);
-                }
+                NuevaArma(ButtonAlmohada,"Almohada",10,5);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
-        //Pantufla
+        //Pantunfla
         ButtonPantunfla.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+10);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 10);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 10);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Pantunfla",20));
-                    ButtonPantunfla.setEnabled(false);
-                } else {
-                    ButtonPantunfla.setEnabled(true);
-                }
+                NuevaArma(ButtonPantunfla,"Pantunfla",20,10);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Cartera
         ButtonCartera.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+40);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 40);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 40);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Cartera",100));
-                    ButtonCartera.setEnabled(false);
-                } else {
-                    ButtonCartera.setEnabled(true);
-                }
+                NuevaArma(ButtonCartera,"Cartera",100,40);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
         //Bolson
         ButtonBolson.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Jugador.setCompra(Jugador.getCompra()+100);
-                total.setText("Total de compra: " + Jugador.getCompra());
-                //verifica que la cantidad de puntos sea la necesaria para poder realizar la compra
-                Jugador j = new Jugador();
-                if (j.ValidarCompra()) {
-                    //Se cobra al jugador, le restamos puntos
-                    Jugador.setPuntos(Jugador.getPuntos() - 100);
-                    //Almacenamos la cantidad de puntos que se le cobraran en la compra
-                    Jugador.setCompra(Jugador.getCompra() + 100);
-                    puntosJugador.setText("Puntos: " + Jugador.getPuntos());
-                    Jugador.setArmaActual(new Arma("Bolson",200));
-                    ButtonBolson.setEnabled(false);
-                } else {
-                    ButtonBolson.setEnabled(true);
-                }
+                NuevaArma(ButtonBolson,"Bolson",200,100);
+                puntosJugador.setText("Puntos: " + Jugador.getPuntos());
             }
         });
 
@@ -277,7 +167,7 @@ public class Armas extends JPanel {
         //add(ButtonCancelar);
         lblBackground.add(ButtonVolver);
         lblBackground.add(puntosJugador);
-        lblBackground.add(total);
+        
         lblBackground.add(ButtonChancla);
         lblBackground.add(ButtonCincho);
         lblBackground.add(ButtonChiliyo);
@@ -299,6 +189,23 @@ public class Armas extends JPanel {
         Armas.ButtonVolver = ButtonVolver;
     }
 
+    private void NuevaArma(JButton B,String nombreArma,int nuevoAtaque,int precio){
+        if(Jugador.ValidarCompra(precio)){
+            Jugador.setPuntos(Jugador.getPuntos()-precio);
+            Jugador.setArmaActual(new Arma(nombreArma,nuevoAtaque));
+            B.setEnabled(false);
+            JOptionPane.showMessageDialog(null,"Ahora el nuevo ataque de "+Jugador.getNombre()+" es "+nuevoAtaque);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"No es posible comprar esa arma.");
+        }
+    }
+    
+    private void Comprobador(JButton B,String nombreArma){
+        if(Jugador.getArmaActual().getNombre()==nombreArma){
+            B.setEnabled(false);
+        }
+    }
   
     
 }
